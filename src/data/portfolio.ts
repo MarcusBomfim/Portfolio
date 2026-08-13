@@ -16,6 +16,10 @@ export const profile = {
     'Desenvolvo aplicações web completas, com foco em código organizado, segurança e soluções para problemas reais.',
   about:
     'Sou formado em Sistemas para Internet e atuo profissionalmente com infraestrutura e suporte de TI. Em desenvolvimento, construo aplicações utilizando principalmente TypeScript, React, Node.js, C#/.NET e bancos de dados relacionais.',
+  aboutComplement:
+    'Essa experiência me ajuda a enxergar o produto além do código: considero o ambiente, a segurança, a manutenção e as necessidades de quem utiliza a solução no dia a dia.',
+  goal:
+    'Busco uma oportunidade em desenvolvimento Full Stack para contribuir com projetos reais, aprender com o time e evoluir continuamente como desenvolvedor.',
 }
 
 export const navigationItems: NavigationItem[] = [
@@ -29,14 +33,28 @@ export const navigationItems: NavigationItem[] = [
 export const skillGroups: SkillGroup[] = [
   {
     title: 'Front-end',
+    description:
+      'Interfaces responsivas, acessíveis e organizadas em componentes reutilizáveis.',
+    application:
+      'Dashboards, formulários, consumo de APIs e experiências adaptadas a diferentes telas.',
     items: ['TypeScript', 'JavaScript', 'React', 'HTML5', 'CSS3', 'Vite'],
+    type: 'frontend',
   },
   {
     title: 'Back-end',
+    description:
+      'APIs e serviços com regras de negócio bem definidas, validação e segurança.',
+    application:
+      'APIs REST, autenticação, controle de acesso, tarefas em segundo plano e integrações.',
     items: ['C#', '.NET 8', 'ASP.NET Core', 'Node.js', 'APIs REST'],
+    type: 'backend',
   },
   {
     title: 'Dados e ferramentas',
+    description:
+      'Persistência relacional e ferramentas para desenvolver, testar e executar aplicações.',
+    application:
+      'Modelagem de dados, consultas SQL, containers, versionamento e observabilidade.',
     items: [
       'PostgreSQL',
       'SQL Server',
@@ -45,6 +63,7 @@ export const skillGroups: SkillGroup[] = [
       'Git',
       'GitHub',
     ],
+    type: 'data',
   },
 ]
 

@@ -5,7 +5,10 @@ export interface NavigationItem {
 
 export interface SkillGroup {
   title: string
+  description: string
+  application: string
   items: string[]
+  type: 'frontend' | 'backend' | 'data'
 }
 
 export interface Project {
