@@ -28,6 +28,8 @@ export interface Project {
 export interface Experience {
   company: string
   role: string
+  area: string
   period: string
   summary: string
+  highlights: string[]
 }

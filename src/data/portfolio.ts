@@ -139,15 +139,27 @@ export const experiences: Experience[] = [
   {
     company: 'Prefeitura Municipal de São Vicente',
     role: 'Estagiário de Infraestrutura e Suporte de TI',
+    area: 'Tecnologia da Informação',
     period: 'mar. 2026 - atual',
     summary:
       'Suporte a usuários, manutenção de equipamentos, instalação de sistemas e diagnóstico de conectividade e redes.',
+    highlights: [
+      'Atendimento e diagnóstico de incidentes',
+      'Manutenção e preparação de equipamentos',
+      'Instalação de sistemas e suporte à conectividade',
+    ],
   },
   {
     company: 'RN Shipbroker',
     role: 'Auxiliar Administrativo',
+    area: 'Operações marítimas e administrativas',
     period: 'ago. 2022 - abr. 2023',
     summary:
       'Controle de documentos de embarque, atendimento a clientes, contato com agentes portuários e relatórios em Excel.',
+    highlights: [
+      'Controle de documentos de embarque',
+      'Contato com clientes e agentes portuários',
+      'Organização de informações e relatórios em Excel',
+    ],
   },
 ]
