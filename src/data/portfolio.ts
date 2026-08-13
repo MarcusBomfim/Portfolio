@@ -51,8 +51,19 @@ export const skillGroups: SkillGroup[] = [
 export const projects: Project[] = [
   {
     title: 'AsiaLogService',
+    category: 'Back-end e observabilidade',
+    context: 'Projeto solicitado pela Asia Shipping',
     description:
-      'Solução solicitada pela Asia Shipping para consulta e monitoramento de logs, alertas automáticos e observabilidade.',
+      'Serviço para centralizar a consulta de logs, identificar eventos críticos e apoiar o acompanhamento das integrações da empresa.',
+    challenge:
+      'Facilitar a identificação de falhas em diferentes integrações e reduzir o acompanhamento manual de ocorrências críticas.',
+    solution:
+      'Desenvolvi uma API REST em .NET 8 com filtros, persistência em SQL Server, alertas por e-mail, processamento em segundo plano e monitoramento da aplicação.',
+    highlights: [
+      'Alertas automáticos para eventos críticos',
+      'Retry para falhas no envio de notificações',
+      'Métricas com Prometheus e Grafana',
+    ],
     technologies: [
       'C#',
       '.NET 8',
@@ -63,20 +74,45 @@ export const projects: Project[] = [
     ],
     repository: 'https://github.com/MarcusBomfim/AsiaLogService',
     featured: true,
+    preview: 'observability',
   },
   {
     title: 'Porto Agenda',
+    category: 'Full Stack e operações portuárias',
+    context: 'Projeto autoral',
     description:
-      'Sistema full stack para agendamento e controle de caminhões em operações portuárias.',
+      'Plataforma para organizar agendamentos de caminhões, cadastros operacionais e acessos de usuários em um único fluxo.',
+    challenge:
+      'Representar regras reais de agenda, capacidade de terminais, disponibilidade de veículos e segurança de acesso sem comprometer a experiência do operador.',
+    solution:
+      'Construí uma aplicação React integrada a uma API Node.js modular, com PostgreSQL, autenticação JWT, perfis administrativos, recuperação de senha e execução completa com Docker.',
+    highlights: [
+      'Regras de conflito e transição de status',
+      'Autenticação e autorização administrativa',
+      'Testes automatizados e integração contínua',
+    ],
     technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
     repository: 'https://github.com/MarcusBomfim/agendamento-caminhoes',
     featured: true,
+    preview: 'scheduling',
   },
   {
-    title: 'Controle de Estoque',
+    title: 'Nexo - Controle de Estoque',
+    category: 'Full Stack e gestão',
+    context: 'Projeto autoral',
     description:
-      'Aplicação para cadastro de produtos, movimentações e acompanhamento dos níveis de estoque.',
-    technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+      'Sistema para administrar produtos, entradas, saídas, níveis mínimos e histórico de movimentações.',
+    challenge:
+      'Manter o saldo consistente durante movimentações simultâneas e permitir que o projeto funcionasse com ou sem um servidor configurado.',
+    solution:
+      'Implementei modos local e PostgreSQL, uma API REST com transações e bloqueio de registros, dashboard, filtros, alertas de reposição e exportação do inventário.',
+    highlights: [
+      'Transações com controle de concorrência',
+      'Modo local e persistência PostgreSQL',
+      'Alertas, filtros e exportação CSV',
+    ],
+    technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'CSS'],
+    preview: 'inventory',
   },
 ]
 
