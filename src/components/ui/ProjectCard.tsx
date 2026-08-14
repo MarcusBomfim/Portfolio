@@ -28,7 +28,10 @@ function ProjectPreview({ project }: ProjectCardProps) {
           <img
             src="/projects/asia-log-service-interface.jpg?v=2"
             alt="Interface real do AsiaLogService exibindo filtros e logs processados por integração"
+            width="1265"
+            height="712"
             loading="lazy"
+            decoding="async"
           />
         </div>
         <figcaption>

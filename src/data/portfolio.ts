@@ -132,6 +132,7 @@ export const projects: Project[] = [
       'Alertas, filtros e exportação CSV',
     ],
     technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'CSS'],
+    repository: 'https://github.com/MarcusBomfim/Controle-Estoque',
     preview: 'inventory',
   },
 ]

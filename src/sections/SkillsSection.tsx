@@ -78,13 +78,17 @@ export function SkillsSection() {
               <strong>Interface</strong>
               <small>Experiência do usuário</small>
             </li>
-            <ArrowRight aria-hidden="true" />
+            <li className="flow-arrow" aria-hidden="true">
+              <ArrowRight />
+            </li>
             <li>
               <span>02</span>
               <strong>API e regras</strong>
               <small>Lógica da aplicação</small>
             </li>
-            <ArrowRight aria-hidden="true" />
+            <li className="flow-arrow" aria-hidden="true">
+              <ArrowRight />
+            </li>
             <li>
               <span>03</span>
               <strong>Dados e entrega</strong>

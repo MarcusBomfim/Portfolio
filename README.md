@@ -2,6 +2,8 @@
 
 Portfólio profissional criado para apresentar minha trajetória, competências e projetos como desenvolvedor Full Stack. A página reúne estudos de caso com contexto, desafios, soluções e tecnologias utilizadas em aplicações voltadas a problemas reais.
 
+**Acesse o projeto:** [marcus-bomfim-portfolio.vercel.app](https://marcus-bomfim-portfolio.vercel.app/)
+
 ![Prévia do portfólio](./public/og.png)
 
 ## Conteúdo
@@ -74,6 +76,25 @@ npm.cmd run check
 ```
 
 Os arquivos de produção são gerados na pasta `dist`.
+
+## Publicação na Vercel
+
+A forma recomendada de publicar este projeto é conectar o repositório do GitHub à Vercel. Assim, cada atualização enviada para a branch `main` gera automaticamente uma nova versão de produção.
+
+1. Envie as alterações para o GitHub.
+2. Acesse [vercel.com](https://vercel.com/) e entre com sua conta do GitHub.
+3. Selecione **Add New > Project**.
+4. Importe o repositório `MarcusBomfim/Portfolio`.
+5. Confirme as configurações detectadas:
+   - Framework Preset: `Vite`
+   - Root Directory: `./`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+6. Selecione **Deploy**.
+
+Este portfólio não utiliza variáveis de ambiente. A versão de produção está disponível em [marcus-bomfim-portfolio.vercel.app](https://marcus-bomfim-portfolio.vercel.app/).
+
+Branches diferentes da `main` podem ser utilizadas para gerar versões de prévia antes de publicar mudanças em produção.
 
 ## Autor
 
