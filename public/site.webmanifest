@@ -1,0 +1,10 @@
+{
+  "name": "Portfólio — Marcus Bomfim",
+  "short_name": "Marcus Bomfim",
+  "description": "Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#075fdb"
+}

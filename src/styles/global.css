@@ -19,6 +19,10 @@ body {
     background-color 180ms ease;
 }
 
+main:focus {
+  outline: none;
+}
+
 a {
   color: inherit;
 }

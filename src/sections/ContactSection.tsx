@@ -9,6 +9,8 @@ import {
 import { profile } from '../data/portfolio'
 
 export function ContactSection() {
+  const curriculumUrl = `${import.meta.env.BASE_URL}curriculo-marcus-bomfim.pdf`
+
   return (
     <section id="contato" className="contact-section section-shell">
       <div className="contact-panel">
@@ -40,7 +42,7 @@ export function ContactSection() {
             </a>
             <a
               className="contact-secondary"
-              href="/curriculo-marcus-bomfim.pdf"
+              href={curriculumUrl}
               download
             >
               <FileDown aria-hidden="true" />

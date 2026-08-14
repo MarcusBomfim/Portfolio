@@ -79,6 +79,7 @@ export const projects: Project[] = [
     solution:
       'Desenvolvi uma API REST em .NET 8 com filtros, persistência em SQL Server, alertas por e-mail, processamento em segundo plano e monitoramento da aplicação.',
     highlights: [
+      'Interface integrada à API e ao SQL Server',
       'Alertas automáticos para eventos críticos',
       'Retry para falhas no envio de notificações',
       'Métricas com Prometheus e Grafana',

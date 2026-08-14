@@ -1,13 +1,10 @@
 import {
   ArrowUpRight,
   CalendarDays,
-  ChartNoAxesCombined,
   CheckCircle2,
-  CircleAlert,
   Code2,
   GitFork,
   PackageCheck,
-  ServerCog,
   Truck,
 } from 'lucide-react'
 import type { Project } from '../../types/portfolio'
@@ -20,43 +17,24 @@ interface ProjectCardProps {
 function ProjectPreview({ project }: ProjectCardProps) {
   if (project.preview === 'observability') {
     return (
-      <div className="project-preview project-preview-observability" aria-hidden="true">
+      <figure className="project-preview project-preview-real">
         <div className="preview-toolbar">
           <span />
           <span />
           <span />
-          <small>AsiaLogService / monitoramento</small>
+          <small>AsiaLogService / interface em funcionamento</small>
         </div>
-        <div className="monitor-grid">
-          <div className="monitor-sidebar">
-            <ServerCog />
-            <Code2 />
-            <ChartNoAxesCombined />
-          </div>
-          <div className="monitor-content">
-            <div className="monitor-title">
-              <div>
-                <span>Visão geral</span>
-                <strong>Saúde das integrações</strong>
-              </div>
-              <small>Tempo real</small>
-            </div>
-            <div className="monitor-stats">
-              <div><span>Integrações</span><strong>12</strong></div>
-              <div><span>Alertas críticos</span><strong>03</strong></div>
-              <div><span>Disponibilidade</span><strong>99,8%</strong></div>
-            </div>
-            <div className="monitor-chart">
-              <i /><i /><i /><i /><i /><i /><i /><i />
-            </div>
-            <div className="monitor-alert">
-              <CircleAlert />
-              <span>Evento crítico identificado</span>
-              <small>notificação enviada</small>
-            </div>
-          </div>
+        <div className="real-interface-frame">
+          <img
+            src="/projects/asia-log-service-interface.jpg?v=2"
+            alt="Interface real do AsiaLogService exibindo filtros e logs processados por integração"
+            loading="lazy"
+          />
         </div>
-      </div>
+        <figcaption>
+          Consulta de logs com dados fornecidos pela API do projeto.
+        </figcaption>
+      </figure>
     )
   }
 

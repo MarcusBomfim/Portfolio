@@ -11,6 +11,8 @@ import {
 import { profile } from '../data/portfolio'
 
 export function HeroSection() {
+  const curriculumUrl = `${import.meta.env.BASE_URL}curriculo-marcus-bomfim.pdf`
+
   return (
     <section id="inicio" className="hero-section section-shell">
       <div className="hero-content">
@@ -37,7 +39,7 @@ export function HeroSection() {
           </a>
           <a
             className="button button-secondary"
-            href="/curriculo-marcus-bomfim.pdf"
+            href={curriculumUrl}
             download
           >
             Baixar currículo
@@ -67,9 +69,6 @@ export function HeroSection() {
               <span className="profile-card-label">PERFIL / 2026</span>
               <h2>Engenharia com propósito</h2>
             </div>
-            <span className="profile-monogram" aria-hidden="true">
-              MB
-            </span>
           </header>
 
           <div className="profile-stack">
@@ -96,11 +95,6 @@ export function HeroSection() {
           </footer>
         </article>
 
-        <aside className="project-signal">
-          <span>Projeto real</span>
-          <strong>AsiaLogService</strong>
-          <p>Solução solicitada pela Asia Shipping</p>
-        </aside>
       </div>
     </section>
   )

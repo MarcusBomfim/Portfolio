@@ -1,20 +1,32 @@
 import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { navigationItems, profile } from '../../data/portfolio'
 import { ThemeToggle } from '../ui/ThemeToggle'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuToggleRef = useRef<HTMLButtonElement>(null)
 
   const closeMenu = () => setIsMenuOpen(false)
+
+  useEffect(() => {
+    if (!isMenuOpen) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+        menuToggleRef.current?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isMenuOpen])
 
   return (
     <header className="site-header-shell">
       <div className="site-header">
         <a className="brand" href="#inicio" aria-label="Ir para o início">
-          <span className="brand-mark" aria-hidden="true">
-            MB
-          </span>
           <span>{profile.shortName}</span>
         </a>
 
@@ -41,6 +53,7 @@ export function Header() {
         <div className="header-controls">
           <ThemeToggle />
           <button
+            ref={menuToggleRef}
             className="menu-toggle"
             type="button"
             aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}

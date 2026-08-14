@@ -4,17 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#07111f" media="(prefers-color-scheme: dark)" />
+    <meta name="author" content="Marcus Bomfim" />
+    <meta name="robots" content="index, follow" />
     <meta
       name="description"
-      content="Portfólio de Marcus Bomfim, desenvolvedor Full Stack Júnior."
+      content="Portfólio de Marcus Bomfim, desenvolvedor Full Stack com projetos em React, TypeScript, Node.js, C#/.NET e bancos de dados relacionais."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Marcus Bomfim | Desenvolvedor Full Stack" />
+    <meta
+      property="og:description"
+      content="Projetos Full Stack aplicados a logística, operações portuárias, observabilidade e gestão."
+    />
+    <meta property="og:image" content="%BASE_URL%og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1728" />
+    <meta property="og:image:height" content="912" />
+    <meta property="og:image:alt" content="Marcus Bomfim — Desenvolvedor Full Stack" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Marcus Bomfim | Desenvolvedor Full Stack" />
+    <meta
+      name="twitter:description"
+      content="Projetos Full Stack aplicados a problemas reais."
+    />
+    <meta name="twitter:image" content="%BASE_URL%og.png" />
+    <link rel="manifest" href="%BASE_URL%site.webmanifest" />
     <title>Marcus Bomfim | Desenvolvedor Full Stack</title>
     <script>
-      const savedTheme = localStorage.getItem('portfolio-theme')
-      const preferredTheme = matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light'
-      document.documentElement.dataset.theme = savedTheme || preferredTheme
+      try {
+        const savedTheme = localStorage.getItem('portfolio-theme')
+        const preferredTheme = matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
+        const selectedTheme = savedTheme || preferredTheme
+        document.documentElement.dataset.theme = selectedTheme
+        document.documentElement.style.colorScheme = selectedTheme
+      } catch {
+        document.documentElement.dataset.theme = 'light'
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marcus Vinicius Ferreira Bomfim",
+        "alternateName": "Marcus Bomfim",
+        "jobTitle": "Desenvolvedor Full Stack",
+        "email": "mailto:marcusbomfimm@gmail.com",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "São Vicente, São Paulo, Brasil"
+        },
+        "sameAs": ["https://github.com/MarcusBomfim"],
+        "knowsAbout": [
+          "TypeScript",
+          "React",
+          "Node.js",
+          "C#",
+          ".NET",
+          "PostgreSQL",
+          "SQL Server",
+          "Docker"
+        ]
+      }
     </script>
   </head>
   <body>

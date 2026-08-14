@@ -14,7 +14,7 @@ function App() {
         Ir para o conteúdo principal
       </a>
       <Header />
-      <main id="conteudo-principal">
+      <main id="conteudo-principal" tabIndex={-1}>
         <HeroSection />
         <AboutSection />
         <SkillsSection />
