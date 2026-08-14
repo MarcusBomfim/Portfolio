@@ -681,101 +681,6 @@
   line-height: 1.55;
 }
 
-.fullstack-flow {
-  display: grid;
-  grid-template-columns: minmax(13rem, 0.7fr) minmax(0, 1.7fr);
-  align-items: center;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  margin-top: 1rem;
-  padding: clamp(1.25rem, 3vw, 2rem);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-medium);
-  background: var(--color-surface);
-}
-
-.flow-heading {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.flow-heading > svg {
-  flex: 0 0 auto;
-  width: 1.4rem;
-  height: 1.4rem;
-  color: var(--color-primary);
-}
-
-.flow-heading span {
-  display: block;
-  color: var(--color-primary);
-  font-size: 0.62rem;
-  font-weight: 850;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.flow-heading strong {
-  display: block;
-  color: var(--color-heading);
-  font-size: 0.9rem;
-}
-
-.fullstack-flow ol {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  align-items: center;
-  gap: 0.8rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.fullstack-flow li {
-  min-width: 0;
-}
-
-.fullstack-flow li span,
-.fullstack-flow li strong,
-.fullstack-flow li small {
-  display: block;
-}
-
-.fullstack-flow li span {
-  color: var(--color-primary);
-  font-size: 0.58rem;
-  font-weight: 850;
-}
-
-.fullstack-flow li strong {
-  overflow: hidden;
-  color: var(--color-heading);
-  font-size: 0.78rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.fullstack-flow li small {
-  overflow: hidden;
-  color: var(--color-muted);
-  font-size: 0.62rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.fullstack-flow .flow-arrow {
-  display: grid;
-  padding: 0;
-  place-items: center;
-}
-
-.fullstack-flow .flow-arrow svg {
-  width: 1rem;
-  height: 1rem;
-  color: var(--color-muted);
-  opacity: 0.65;
-}
-
 .experience-section {
   position: relative;
 }
@@ -1708,10 +1613,6 @@
     max-width: 44rem;
   }
 
-  .fullstack-flow {
-    grid-template-columns: 1fr;
-  }
-
   .experience-layout {
     grid-template-columns: 1fr;
   }
@@ -1813,30 +1714,6 @@
 
   .skill-card > p {
     min-height: auto;
-  }
-
-  .fullstack-flow ol {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  .fullstack-flow li {
-    padding: 0.75rem;
-    border: 1px solid var(--color-border);
-    border-radius: 0.7rem;
-    background: var(--color-background-soft);
-  }
-
-  .fullstack-flow li strong,
-  .fullstack-flow li small {
-    white-space: normal;
-  }
-
-  .fullstack-flow .flow-arrow {
-    border: 0;
-    background: transparent;
-    justify-self: center;
-    transform: rotate(90deg);
   }
 
   .experience-layout {

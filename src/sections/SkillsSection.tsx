@@ -1,6 +1,4 @@
 import {
-  ArrowRight,
-  Braces,
   Database,
   PanelsTopLeft,
   ServerCog,
@@ -55,42 +53,6 @@ export function SkillsSection() {
           })}
         </div>
 
-        <div
-          className="fullstack-flow"
-          aria-label="Fluxo de desenvolvimento full stack"
-        >
-          <div className="flow-heading">
-            <Braces aria-hidden="true" />
-            <div>
-              <span>Visão full stack</span>
-              <strong>Como as partes se conectam</strong>
-            </div>
-          </div>
-
-          <ol>
-            <li>
-              <span>01</span>
-              <strong>Interface</strong>
-              <small>Experiência do usuário</small>
-            </li>
-            <li className="flow-arrow" aria-hidden="true">
-              <ArrowRight />
-            </li>
-            <li>
-              <span>02</span>
-              <strong>API e regras</strong>
-              <small>Lógica da aplicação</small>
-            </li>
-            <li className="flow-arrow" aria-hidden="true">
-              <ArrowRight />
-            </li>
-            <li>
-              <span>03</span>
-              <strong>Dados e entrega</strong>
-              <small>Persistência e execução</small>
-            </li>
-          </ol>
-        </div>
       </div>
     </section>
   )
