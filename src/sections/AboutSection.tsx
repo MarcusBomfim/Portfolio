@@ -5,7 +5,6 @@ import {
   MapPin,
   Target,
 } from 'lucide-react'
-import { SectionHeading } from '../components/ui/SectionHeading'
 import { profile } from '../data/portfolio'
 
 export function AboutSection() {
@@ -13,11 +12,7 @@ export function AboutSection() {
     <section id="sobre" className="about-section section-shell">
       <div className="about-grid">
         <div className="about-content">
-          <SectionHeading
-            eyebrow="Sobre mim"
-            title="Desenvolvimento com visão do todo"
-            description="Código bem construído começa com a compreensão do problema, das pessoas e do contexto em que a solução será utilizada."
-          />
+          <h2 className="section-label">Sobre mim</h2>
 
           <div className="about-copy">
             <p>{profile.about}</p>

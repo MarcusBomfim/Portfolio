@@ -6,7 +6,6 @@ import {
   ServerCog,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { SectionHeading } from '../components/ui/SectionHeading'
 import { skillGroups } from '../data/portfolio'
 import type { SkillGroup } from '../types/portfolio'
 
@@ -20,11 +19,7 @@ export function SkillsSection() {
   return (
     <section id="tecnologias" className="skills-section">
       <div className="section-shell">
-        <SectionHeading
-          eyebrow="Tecnologias e competências"
-          title="Uma base para construir de ponta a ponta"
-          description="Tecnologias escolhidas de acordo com o problema e aplicadas na prática nos projetos deste portfólio."
-        />
+        <h2 className="section-label">Tecnologias e competências</h2>
 
         <div className="skills-grid">
           {skillGroups.map((group, index) => {

@@ -16,15 +16,8 @@ export function HeroSection() {
   return (
     <section id="inicio" className="hero-section section-shell">
       <div className="hero-content">
-        <div className="availability-pill">
-          <span aria-hidden="true" />
-          Disponível para oportunidades Full Stack Júnior
-        </div>
-
-        <p className="hero-introduction">Olá, eu sou {profile.shortName}.</p>
-        <h1>
-          Transformo problemas reais em{' '}
-          <span>aplicações confiáveis.</span>
+        <h1 className="hero-introduction">
+          Olá, eu sou {profile.shortName}.
         </h1>
         <p className="hero-description">
           Desenvolvedor Full Stack com experiência prática em soluções para
@@ -64,13 +57,6 @@ export function HeroSection() {
         <div className="hero-orbit hero-orbit-two" aria-hidden="true" />
 
         <article className="profile-card">
-          <header className="profile-card-header">
-            <div>
-              <span className="profile-card-label">PERFIL / 2026</span>
-              <h2>Engenharia com propósito</h2>
-            </div>
-          </header>
-
           <div className="profile-stack">
             <div>
               <Code2 aria-hidden="true" />
@@ -94,7 +80,6 @@ export function HeroSection() {
             {profile.location}
           </footer>
         </article>
-
       </div>
     </section>
   )

@@ -4,7 +4,6 @@ import {
   CheckCircle2,
   Code2,
 } from 'lucide-react'
-import { SectionHeading } from '../components/ui/SectionHeading'
 import { experiences } from '../data/portfolio'
 
 export function ExperienceSection() {
@@ -12,11 +11,7 @@ export function ExperienceSection() {
     <section id="experiencia" className="experience-section section-shell">
       <div className="experience-layout">
         <div className="experience-intro">
-          <SectionHeading
-            eyebrow="Experiência"
-            title="Uma trajetória que conecta tecnologia e operação"
-            description="Minha experiência profissional desenvolveu competências de atendimento, diagnóstico, organização e compreensão de processos — uma base que levo para o desenvolvimento de software."
-          />
+          <h2 className="section-label">Experiência</h2>
 
           <div className="career-bridge">
             <div className="career-bridge-icons" aria-hidden="true">
