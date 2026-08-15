@@ -73,7 +73,7 @@ export function ContactSection() {
                 rel="noreferrer"
                 aria-label="Abrir o LinkedIn de Marcus Bomfim"
               >
-                marcus-bomfim
+                Marcus Bomfim
               </a>
             </p>
           </div>
