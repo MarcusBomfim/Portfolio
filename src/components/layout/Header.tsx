@@ -5,6 +5,7 @@ import { ThemeToggle } from '../ui/ThemeToggle'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
   const menuToggleRef = useRef<HTMLButtonElement>(null)
 
   const closeMenu = () => setIsMenuOpen(false)
@@ -23,6 +24,52 @@ export function Header() {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isMenuOpen])
 
+  useEffect(() => {
+    let animationFrameId = 0
+
+    const updateActiveSection = () => {
+      const activationPoint = window.scrollY + window.innerHeight * 0.35
+      const sections = navigationItems
+        .map((item) => document.getElementById(item.href.slice(1)))
+        .filter((section): section is HTMLElement => section !== null)
+
+      const currentSection = sections
+        .filter(
+          (section) =>
+            section.getBoundingClientRect().top + window.scrollY <=
+            activationPoint,
+        )
+        .at(-1)
+
+      const isAtPageEnd =
+        window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - 2
+      const nextSection = isAtPageEnd
+        ? sections.at(-1)?.id ?? ''
+        : currentSection?.id ?? ''
+
+      setActiveSection((current) =>
+        current === nextSection ? current : nextSection,
+      )
+      animationFrameId = 0
+    }
+
+    const scheduleUpdate = () => {
+      if (animationFrameId) return
+      animationFrameId = window.requestAnimationFrame(updateActiveSection)
+    }
+
+    updateActiveSection()
+    window.addEventListener('scroll', scheduleUpdate, { passive: true })
+    window.addEventListener('resize', scheduleUpdate)
+
+    return () => {
+      window.removeEventListener('scroll', scheduleUpdate)
+      window.removeEventListener('resize', scheduleUpdate)
+      if (animationFrameId) window.cancelAnimationFrame(animationFrameId)
+    }
+  }, [])
+
   return (
     <header className="site-header-shell">
       <div className="site-header">
@@ -39,8 +86,17 @@ export function Header() {
             {navigationItems.map((item) => (
               <li key={item.href}>
                 <a
-                  className={item.href === '#contato' ? 'navigation-cta' : ''}
+                  className={
+                    activeSection === item.href.slice(1)
+                      ? 'navigation-active'
+                      : undefined
+                  }
                   href={item.href}
+                  aria-current={
+                    activeSection === item.href.slice(1)
+                      ? 'location'
+                      : undefined
+                  }
                   onClick={closeMenu}
                 >
                   {item.label}

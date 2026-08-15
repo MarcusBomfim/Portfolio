@@ -68,13 +68,12 @@
   background: var(--color-primary-soft);
 }
 
-.navigation-list .navigation-cta {
-  margin-left: 0.35rem;
+.navigation-list .navigation-active {
   color: #ffffff;
   background: var(--color-primary);
 }
 
-.navigation-list .navigation-cta:hover {
+.navigation-list .navigation-active:hover {
   color: #ffffff;
   background: var(--color-primary-strong);
 }
@@ -1591,10 +1590,6 @@
 
   .navigation-list a {
     width: 100%;
-  }
-
-  .navigation-list .navigation-cta {
-    margin-left: 0;
   }
 
   .menu-toggle {
