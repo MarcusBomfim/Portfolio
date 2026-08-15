@@ -60,7 +60,9 @@
   text-decoration: none;
   transition:
     color 160ms ease,
-    background-color 160ms ease;
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
 }
 
 .navigation-list a:hover {
@@ -71,11 +73,14 @@
 .navigation-list .navigation-active {
   color: #ffffff;
   background: var(--color-primary);
+  box-shadow: 0 10px 24px -14px var(--color-primary);
 }
 
 .navigation-list .navigation-active:hover {
   color: #ffffff;
   background: var(--color-primary-strong);
+  box-shadow: 0 14px 28px -12px var(--color-primary);
+  transform: translateY(-2px) scale(1.04);
 }
 
 .header-controls {
