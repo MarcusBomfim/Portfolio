@@ -1,10 +1,10 @@
 import {
   ArrowUpRight,
   CheckCircle2,
+  ExternalLink,
   FileDown,
   GitFork,
   Mail,
-  MapPin,
 } from 'lucide-react'
 import { profile } from '../data/portfolio'
 
@@ -19,7 +19,7 @@ export function ContactSection() {
             <CheckCircle2 aria-hidden="true" />
             Disponível para oportunidades
           </span>
-          <h2>Vamos transformar uma boa ideia em uma solução real?</h2>
+          <h2>Vamos transformar sua ideia em uma solução real?</h2>
           <p>
             Busco uma oportunidade em desenvolvimento Full Stack. Se meu perfil
             fizer sentido para seu time ou projeto, ficarei feliz em conversar.
@@ -42,6 +42,15 @@ export function ContactSection() {
             </a>
             <a
               className="contact-secondary"
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <ExternalLink aria-hidden="true" />
+              Ver LinkedIn
+            </a>
+            <a
+              className="contact-secondary"
               href={curriculumUrl}
               download
             >
@@ -55,10 +64,12 @@ export function ContactSection() {
           <span>Contato direto</span>
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
           <div>
-            <MapPin aria-hidden="true" />
+            <ExternalLink aria-hidden="true" />
             <p>
-              <small>Localização</small>
-              <strong>{profile.location}</strong>
+              <small>LinkedIn</small>
+              <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                marcus-bomfim-625495367
+              </a>
             </p>
           </div>
           <div>

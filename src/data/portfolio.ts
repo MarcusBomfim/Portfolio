@@ -12,6 +12,7 @@ export const profile = {
   location: 'São Vicente, SP',
   email: 'marcusbomfimm@gmail.com',
   github: 'https://github.com/MarcusBomfim',
+  linkedin: 'https://www.linkedin.com/in/marcus-bomfim-625495367/',
   summary:
     'Desenvolvo aplicações web completas, com foco em código organizado, segurança e soluções para problemas reais.',
   about:

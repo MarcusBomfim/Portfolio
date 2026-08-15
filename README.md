@@ -13,7 +13,7 @@ Portfólio profissional criado para apresentar minha trajetória, competências 
 - Estudos de caso dos projetos AsiaLogService, Porto Agenda e Nexo
 - Captura real do AsiaLogService conectado à API e ao SQL Server
 - Trajetória profissional e competências transferíveis
-- Links para GitHub, currículo e contato por e-mail
+- Links para LinkedIn, GitHub, currículo e contato por e-mail
 - Alternância entre temas claro e escuro
 
 ## Tecnologias
