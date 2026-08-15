@@ -1,11 +1,11 @@
 import {
   ArrowUpRight,
   CheckCircle2,
-  ExternalLink,
   FileDown,
   GitFork,
   Mail,
 } from 'lucide-react'
+import { FaLinkedinIn } from 'react-icons/fa6'
 import { profile } from '../data/portfolio'
 
 export function ContactSection() {
@@ -46,7 +46,7 @@ export function ContactSection() {
               target="_blank"
               rel="noreferrer"
             >
-              <ExternalLink aria-hidden="true" />
+              <FaLinkedinIn aria-hidden="true" />
               Ver LinkedIn
             </a>
             <a
@@ -64,11 +64,16 @@ export function ContactSection() {
           <span>Contato direto</span>
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
           <div>
-            <ExternalLink aria-hidden="true" />
+            <FaLinkedinIn aria-hidden="true" />
             <p>
               <small>LinkedIn</small>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                marcus-bomfim-625495367
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Abrir o LinkedIn de Marcus Bomfim"
+              >
+                marcus-bomfim
               </a>
             </p>
           </div>
