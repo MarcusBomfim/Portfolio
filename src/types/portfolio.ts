@@ -33,3 +33,15 @@ export interface Experience {
   summary: string
   highlights: string[]
 }
+
+export interface Certificate {
+  title: string
+  issuer: string
+  issuedAt: string
+  issuedAtLabel: string
+  description: string
+  skills: string[]
+  document: string
+  preview: string
+  type: 'aws' | 'cisco'
+}

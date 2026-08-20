@@ -10,6 +10,7 @@ Portfólio profissional criado para apresentar minha trajetória, competências 
 
 - Apresentação profissional e objetivo de carreira
 - Competências de front-end, back-end, dados e ferramentas
+- Certificados AWS e Cisco com documentos disponíveis para visualização
 - Estudos de caso dos projetos AsiaLogService, Porto Agenda e Nexo
 - Captura real do AsiaLogService conectado à API e ao SQL Server
 - Trajetória profissional e competências transferíveis

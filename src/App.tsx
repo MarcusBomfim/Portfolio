@@ -2,6 +2,7 @@ import { Footer } from './components/layout/Footer'
 import { Header } from './components/layout/Header'
 import { AboutSection } from './sections/AboutSection'
 import { ContactSection } from './sections/ContactSection'
+import { CertificatesSection } from './sections/CertificatesSection'
 import { ExperienceSection } from './sections/ExperienceSection'
 import { HeroSection } from './sections/HeroSection'
 import { ProjectsSection } from './sections/ProjectsSection'
@@ -18,6 +19,7 @@ function App() {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
+        <CertificatesSection />
         <ProjectsSection />
         <ExperienceSection />
         <ContactSection />

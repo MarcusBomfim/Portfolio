@@ -1,4 +1,5 @@
 import type {
+  Certificate,
   Experience,
   NavigationItem,
   Project,
@@ -26,9 +27,49 @@ export const profile = {
 export const navigationItems: NavigationItem[] = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Tecnologias', href: '#tecnologias' },
+  { label: 'Certificados', href: '#certificados' },
   { label: 'Projetos', href: '#projetos' },
   { label: 'Experiência', href: '#experiencia' },
   { label: 'Contato', href: '#contato' },
+]
+
+export const certificates: Certificate[] = [
+  {
+    title: 'AWS Cloud Practitioner Essentials',
+    issuer: 'AWS Training & Certification',
+    issuedAt: '2026-08-20',
+    issuedAtLabel: '20 ago. 2026',
+    description:
+      'Fundamentos da nuvem AWS, serviços essenciais, segurança, arquitetura, preços e suporte.',
+    skills: ['Cloud computing', 'AWS', 'Segurança na nuvem'],
+    document: '/certificates/aws-cloud-practitioner-essentials.pdf',
+    preview: '/certificates/aws-cloud-practitioner-essentials.png',
+    type: 'aws',
+  },
+  {
+    title: 'Network Defense',
+    issuer: 'Cisco Networking Academy',
+    issuedAt: '2025-04-10',
+    issuedAtLabel: '10 abr. 2025',
+    description:
+      'Defesa de redes, proteção de dados, segurança de endpoints, firewalls, identidade e infraestrutura de chaves públicas.',
+    skills: ['Cibersegurança', 'Network Defense', 'PKI'],
+    document: '/certificates/cisco-network-defense.pdf',
+    preview: '/certificates/cisco-network-defense.png',
+    type: 'cisco',
+  },
+  {
+    title: 'Network Technician Career Path',
+    issuer: 'Cisco Networking Academy',
+    issuedAt: '2025-04-17',
+    issuedAtLabel: '17 abr. 2025',
+    description:
+      'Trilha de redes com Ethernet, IPv4, IPv6, roteamento, serviços de rede, conectividade e diagnóstico de falhas.',
+    skills: ['Redes', 'IPv4 e IPv6', 'Troubleshooting'],
+    document: '/certificates/cisco-network-technician-career-path.pdf',
+    preview: '/certificates/cisco-network-technician-career-path.png',
+    type: 'cisco',
+  },
 ]
 
 export const skillGroups: SkillGroup[] = [
