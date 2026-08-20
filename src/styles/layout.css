@@ -689,6 +689,18 @@
   position: relative;
 }
 
+.certificates-intro {
+  max-width: 48rem;
+}
+
+.certificates-intro .section-label {
+  margin-bottom: 0.75rem;
+}
+
+.certificates-intro p {
+  color: var(--color-muted);
+}
+
 .certificates-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

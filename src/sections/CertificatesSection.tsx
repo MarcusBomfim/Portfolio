@@ -1,15 +1,16 @@
 import { Award, Cloud, ExternalLink, ShieldCheck } from 'lucide-react'
-import { SectionHeading } from '../components/ui/SectionHeading'
 import { certificates } from '../data/portfolio'
 
 export function CertificatesSection() {
   return (
     <section id="certificados" className="certificates-section section-shell">
-      <SectionHeading
-        eyebrow="Formação contínua"
-        title="Certificados que fortalecem minha base técnica."
-        description="Formações concluídas em computação em nuvem, redes e cibersegurança, com aplicação direta no desenvolvimento de soluções mais confiáveis."
-      />
+      <header className="certificates-intro">
+        <h2 className="section-label">Certificados</h2>
+        <p>
+          Formações concluídas em computação em nuvem, redes e cibersegurança,
+          com aplicação direta no desenvolvimento de soluções mais confiáveis.
+        </p>
+      </header>
 
       <div className="certificates-grid">
         {certificates.map((certificate) => {

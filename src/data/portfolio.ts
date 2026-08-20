@@ -27,8 +27,8 @@ export const profile = {
 export const navigationItems: NavigationItem[] = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Tecnologias', href: '#tecnologias' },
-  { label: 'Certificados', href: '#certificados' },
   { label: 'Projetos', href: '#projetos' },
+  { label: 'Certificados', href: '#certificados' },
   { label: 'Experiência', href: '#experiencia' },
   { label: 'Contato', href: '#contato' },
 ]

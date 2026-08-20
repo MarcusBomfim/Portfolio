@@ -19,8 +19,8 @@ function App() {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
-        <CertificatesSection />
         <ProjectsSection />
+        <CertificatesSection />
         <ExperienceSection />
         <ContactSection />
       </main>
