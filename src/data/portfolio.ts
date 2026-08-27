@@ -35,6 +35,19 @@ export const navigationItems: NavigationItem[] = [
 
 export const certificates: Certificate[] = [
   {
+    title: 'Foundational C# with Microsoft',
+    issuer: 'freeCodeCamp + Microsoft',
+    issuedAt: '2026-08-26',
+    issuedAtLabel: '26 ago. 2026',
+    description:
+      'Fundamentos de C# e .NET, incluindo tipos, controle de fluxo, métodos, tratamento de dados e desenvolvimento orientado a objetos.',
+    skills: ['C#', '.NET', 'Programação orientada a objetos'],
+    document:
+      'https://www.freecodecamp.org/certification/marcusbomfim/foundational-c-sharp-with-microsoft',
+    preview: '/certificates/freecodecamp-foundational-csharp-microsoft.png',
+    type: 'microsoft',
+  },
+  {
     title: 'AWS Cloud Practitioner Essentials',
     issuer: 'AWS Training & Certification',
     issuedAt: '2026-08-20',

@@ -1,5 +1,11 @@
-import { Award, Cloud, ExternalLink, ShieldCheck } from 'lucide-react'
+import { Award, Cloud, Code2, ExternalLink, ShieldCheck } from 'lucide-react'
 import { certificates } from '../data/portfolio'
+
+const issuerIcons = {
+  aws: Cloud,
+  cisco: ShieldCheck,
+  microsoft: Code2,
+}
 
 export function CertificatesSection() {
   return (
@@ -7,14 +13,14 @@ export function CertificatesSection() {
       <header className="certificates-intro">
         <h2 className="section-label">Certificados</h2>
         <p>
-          Formações concluídas em computação em nuvem, redes e cibersegurança,
-          com aplicação direta no desenvolvimento de soluções mais confiáveis.
+          Formações concluídas em desenvolvimento de software, computação em
+          nuvem, redes e cibersegurança.
         </p>
       </header>
 
       <div className="certificates-grid">
         {certificates.map((certificate) => {
-          const IssuerIcon = certificate.type === 'aws' ? Cloud : ShieldCheck
+          const IssuerIcon = issuerIcons[certificate.type]
 
           return (
             <article

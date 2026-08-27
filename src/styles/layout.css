@@ -732,6 +732,14 @@
   --certificate-color: var(--color-accent);
 }
 
+.certificate-card-microsoft {
+  --certificate-color: #512bd4;
+}
+
+.certificate-card-microsoft .certificate-preview img {
+  object-fit: contain;
+}
+
 .certificate-preview {
   position: relative;
   display: block;

@@ -43,5 +43,5 @@ export interface Certificate {
   skills: string[]
   document: string
   preview: string
-  type: 'aws' | 'cisco'
+  type: 'aws' | 'cisco' | 'microsoft'
 }
