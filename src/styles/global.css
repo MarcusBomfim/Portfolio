@@ -12,7 +12,10 @@ body {
   color: var(--color-text);
   background: var(--color-background);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   transition:
     color 180ms ease,
     background-color 180ms ease;
@@ -42,7 +45,15 @@ h1,
 h2,
 h3 {
   color: var(--color-heading);
-  line-height: 1.15;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+img {
+  max-width: 100%;
 }
 
 ul {
@@ -62,11 +73,12 @@ button {
 
 :focus-visible {
   outline: 3px solid var(--color-accent);
-  outline-offset: 4px;
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 ::selection {
-  color: #ffffff;
+  color: var(--color-on-primary);
   background: var(--color-primary);
 }
 
@@ -77,8 +89,8 @@ button {
   left: 1rem;
   padding: 0.75rem 1rem;
   border-radius: var(--radius-small);
-  color: #ffffff;
-  background: var(--color-primary-strong);
+  color: var(--color-on-primary);
+  background: var(--color-primary);
   font-weight: 700;
   text-decoration: none;
   transform: translateY(-160%);

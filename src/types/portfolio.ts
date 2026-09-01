@@ -1,6 +1,13 @@
+export type Language = 'pt' | 'en'
+
 export interface NavigationItem {
   label: string
   href: string
+}
+
+export interface Metric {
+  value: string
+  label: string
 }
 
 export interface SkillGroup {
@@ -12,6 +19,7 @@ export interface SkillGroup {
 }
 
 export interface Project {
+  id: string
   title: string
   category: string
   context: string
@@ -19,10 +27,12 @@ export interface Project {
   challenge: string
   solution: string
   highlights: string[]
+  metrics: Metric[]
   technologies: string[]
   repository?: string
+  demo?: string
   featured?: boolean
-  preview: 'observability' | 'scheduling' | 'inventory'
+  preview: 'ships' | 'observability' | 'scheduling' | 'inventory'
 }
 
 export interface Experience {
@@ -44,4 +54,142 @@ export interface Certificate {
   document: string
   preview: string
   type: 'aws' | 'cisco' | 'microsoft'
+}
+
+export interface Profile {
+  name: string
+  shortName: string
+  role: string
+  location: string
+  email: string
+  github: string
+  linkedin: string
+  about: string
+  aboutComplement: string
+  goal: string
+}
+
+export interface HeroContent {
+  eyebrow: string
+  headline: string
+  headlineAccent: string
+  description: string
+  primaryAction: string
+  secondaryAction: string
+  stackLabel: string
+  stackLayers: { label: string; value: string }[]
+}
+
+export interface AboutContent {
+  label: string
+  principles: string[]
+  profileLabel: string
+  profileBadge: string
+  facts: { term: string; value: string }[]
+}
+
+export interface ProjectsContent {
+  eyebrow: string
+  title: string
+  description: string
+  items: Project[]
+}
+
+export interface ExperienceContent {
+  label: string
+  bridgeTitle: string
+  bridgeText: string
+  items: Experience[]
+}
+
+export interface ContactContent {
+  eyebrow: string
+  title: string
+  description: string
+  primaryAction: string
+  directLabel: string
+}
+
+export interface UiStrings {
+  skipToContent: string
+  openMenu: string
+  closeMenu: string
+  goToStart: string
+  mainNavigation: string
+  professionalLinks: string
+  footerNavigation: string
+  backToTop: string
+  builtWith: string
+  themeToLight: string
+  themeToDark: string
+  languageLabel: string
+  challenge: string
+  solution: string
+  highlightsOf: (title: string) => string
+  technologiesOf: (title: string) => string
+  metricsOf: (title: string) => string
+  liveDemo: string
+  sourceCode: string
+  repositoryPending: string
+  viewCertificate: string
+  openCertificate: (title: string) => string
+  certificatePreview: (title: string) => string
+  certificateCompleted: string
+  certificateSkills: (title: string) => string
+  activitiesAt: (company: string) => string
+  skillsOf: (title: string) => string
+  practicalUse: string
+  curriculumTitle: (updatedAt: string) => string
+  statsLabel: string
+  previews: PreviewStrings
+}
+
+/** Textos das maquetes de interface exibidas ao lado de cada projeto. */
+export interface PreviewStrings {
+  ships: {
+    toolbar: string
+    eyebrow: string
+    title: string
+    berthed: string
+    waiting: string
+    planned: string
+  }
+  asiaLog: {
+    toolbar: string
+    caption: string
+    alt: string
+  }
+  scheduling: {
+    toolbar: string
+    eyebrow: string
+    title: string
+    scheduled: string
+    confirmed: string
+    terminal: string
+    statuses: [string, string, string]
+  }
+  inventory: {
+    toolbar: string
+    eyebrow: string
+    title: string
+    products: string
+    lowStock: string
+    movements: string
+    items: [string, string, string]
+    unit: string
+  }
+}
+
+export interface Content {
+  profile: Profile
+  navigation: NavigationItem[]
+  hero: HeroContent
+  stats: Metric[]
+  about: AboutContent
+  skills: { label: string; groups: SkillGroup[] }
+  projects: ProjectsContent
+  certificates: { label: string; description: string; items: Certificate[] }
+  experience: ExperienceContent
+  contact: ContactContent
+  ui: UiStrings
 }

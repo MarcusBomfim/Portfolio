@@ -1,15 +1,11 @@
-import {
-  ArrowUpRight,
-  CheckCircle2,
-  FileDown,
-  GitFork,
-  Mail,
-} from 'lucide-react'
-import { FaLinkedinIn } from 'react-icons/fa6'
-import { profile } from '../data/portfolio'
+import { ArrowUpRight, CheckCircle2, FileDown, Mail } from 'lucide-react'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa6'
+import { curriculum } from '../data/portfolio'
+import { useContent, useLanguage } from '../i18n/useContent'
 
 export function ContactSection() {
-  const curriculumUrl = `${import.meta.env.BASE_URL}curriculo-marcus-bomfim.pdf`
+  const { contact, profile, ui } = useContent()
+  const { language } = useLanguage()
 
   return (
     <section id="contato" className="contact-section section-shell">
@@ -17,71 +13,62 @@ export function ContactSection() {
         <div className="contact-content">
           <span className="contact-eyebrow">
             <CheckCircle2 aria-hidden="true" />
-            Disponível para oportunidades
+            {contact.eyebrow}
           </span>
-          <h2>Vamos transformar sua ideia em uma solução real?</h2>
-          <p>
-            Busco uma oportunidade em desenvolvimento Full Stack. Se meu perfil
-            fizer sentido para seu time ou projeto, ficarei feliz em conversar.
-          </p>
 
-          <div className="contact-actions">
-            <a className="contact-primary" href={`mailto:${profile.email}`}>
-              <Mail aria-hidden="true" />
-              Enviar e-mail
-              <ArrowUpRight aria-hidden="true" />
+          <h2>{contact.title}</h2>
+          <p>{contact.description}</p>
+
+          <a className="contact-primary" href={`mailto:${profile.email}`}>
+            <Mail aria-hidden="true" />
+            {contact.primaryAction}
+            <ArrowUpRight aria-hidden="true" />
+          </a>
+
+          <div className="contact-secondary-links">
+            <a href={profile.github} target="_blank" rel="noreferrer">
+              <FaGithub aria-hidden="true" />
+              GitHub
             </a>
-            <a
-              className="contact-secondary"
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <GitFork aria-hidden="true" />
-              Ver GitHub
-            </a>
-            <a
-              className="contact-secondary"
-              href={profile.linkedin}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={profile.linkedin} target="_blank" rel="noreferrer">
               <FaLinkedinIn aria-hidden="true" />
-              Ver LinkedIn
+              LinkedIn
             </a>
             <a
-              className="contact-secondary"
-              href={curriculumUrl}
-              download
+              href={curriculum.url}
+              download={curriculum.downloadName}
+              type="application/pdf"
+              title={ui.curriculumTitle(curriculum.updatedAt[language])}
             >
               <FileDown aria-hidden="true" />
-              Baixar currículo
+              {language === 'pt' ? 'Currículo' : 'Résumé'}
             </a>
           </div>
         </div>
 
-        <aside className="contact-card" aria-label="Informações de contato">
-          <span>Contato direto</span>
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <aside className="contact-card" aria-label={contact.directLabel}>
+          <span>{contact.directLabel}</span>
+          <a className="contact-card-email" href={`mailto:${profile.email}`}>
+            {profile.email}
+          </a>
+
           <div>
             <FaLinkedinIn aria-hidden="true" />
             <p>
               <small>LinkedIn</small>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Abrir o LinkedIn de Marcus Bomfim"
-              >
-                Marcus Bomfim
+              <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                {profile.shortName}
               </a>
             </p>
           </div>
+
           <div>
-            <GitFork aria-hidden="true" />
+            <FaGithub aria-hidden="true" />
             <p>
               <small>GitHub</small>
-              <strong>@MarcusBomfim</strong>
+              <a href={profile.github} target="_blank" rel="noreferrer">
+                @MarcusBomfim
+              </a>
             </p>
           </div>
         </aside>

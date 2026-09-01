@@ -1,0 +1,16 @@
+/* Ordem da cascata: tokens, base, estruturas compartilhadas e seções. */
+
+@import './variables.css';
+@import './global.css';
+
+@import './layout/shell.css';
+@import './layout/header.css';
+@import './layout/footer.css';
+
+@import './sections/hero.css';
+@import './sections/about.css';
+@import './sections/skills.css';
+@import './sections/projects.css';
+@import './sections/certificates.css';
+@import './sections/experience.css';
+@import './sections/contact.css';

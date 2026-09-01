@@ -1,0 +1,138 @@
+.about-grid {
+  display: grid;
+  align-items: start;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.about-copy p {
+  max-width: 58ch;
+  margin: 0 0 1.15rem;
+  font-size: var(--text-lead);
+  line-height: 1.75;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
+.about-principles {
+  display: grid;
+  gap: 0.7rem;
+  margin: 2.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-principles li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--color-heading);
+  font-size: 0.94rem;
+  font-weight: 500;
+}
+
+.about-principles svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--color-accent);
+}
+
+.about-profile {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--color-surface-solid);
+  box-shadow: var(--shadow-card);
+}
+
+.about-profile > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-profile > header span {
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.about-profile > header strong {
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.about-facts {
+  margin: 0;
+  padding: 0.35rem 1.25rem;
+}
+
+.about-facts > div {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-facts > div:last-child {
+  border-bottom: 0;
+}
+
+.about-facts dt {
+  margin-bottom: 0.2rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-facts dd {
+  margin: 0;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+}
+
+.about-goal {
+  margin: 0;
+  padding: 1.1rem 1.25rem;
+  border-top: 1px solid var(--color-border);
+  border-left: 2px solid var(--color-accent);
+  border-radius: 0 0 var(--radius-medium) var(--radius-medium);
+  background: var(--color-background-soft);
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 980px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    max-width: 46rem;
+  }
+
+  .about-profile {
+    max-width: 34rem;
+  }
+}

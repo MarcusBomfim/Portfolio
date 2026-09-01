@@ -1,42 +1,81 @@
+/*
+ * Identidade: vocabulário do porto.
+ * Névoa (fundo claro), casco (fundo escuro), boia (ação) e sondagem (apoio).
+ * Um único acento quente, reservado para o que é clicável.
+ */
+
 :root {
-  --color-background: #f4f7fb;
-  --color-background-soft: #eaf1fb;
-  --color-surface: rgba(255, 255, 255, 0.86);
+  --color-background: #eef1f2;
+  --color-background-soft: #e4eaec;
+  --color-surface: rgba(255, 255, 255, 0.9);
   --color-surface-solid: #ffffff;
-  --color-text: #10213b;
-  --color-heading: #07152b;
-  --color-muted: #5b6980;
-  --color-primary: #075fdb;
-  --color-primary-strong: #0047ad;
-  --color-primary-soft: #e3efff;
-  --color-accent: #19a9c7;
-  --color-success: #0a9b67;
-  --color-border: rgba(36, 67, 108, 0.16);
-  --color-shadow: rgba(25, 54, 91, 0.15);
-  --header-background: rgba(244, 247, 251, 0.82);
+
+  --color-text: #1b333c;
+  --color-heading: #08191f;
+  --color-muted: #536c76;
+
+  --color-primary: #a9421f;
+  --color-primary-strong: #8b3416;
+  --color-primary-soft: #f7e4db;
+  --color-on-primary: #ffffff;
+
+  --color-accent: #0c5c52;
+  --color-accent-soft: #dbe9e6;
+  --color-success: #0c5c52;
+
+  --color-border: rgba(11, 38, 48, 0.14);
+  --color-border-strong: rgba(11, 38, 48, 0.26);
+  --color-shadow: rgba(10, 32, 41, 0.16);
+  --color-grid: rgba(11, 38, 48, 0.055);
+
+  --header-background: rgba(238, 241, 242, 0.86);
+
+  --font-display: Archivo, 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas,
+    monospace;
+
+  --text-hero: clamp(2.6rem, 6.4vw, 4.4rem);
+  --text-h2: clamp(1.85rem, 3.6vw, 2.7rem);
+  --text-h3: clamp(1.3rem, 2vw, 1.6rem);
+  --text-lead: clamp(1.02rem, 1.35vw, 1.18rem);
+  --text-label: 0.72rem;
+
   --container-width: 1180px;
-  --radius-small: 0.75rem;
-  --radius-medium: 1.25rem;
-  --radius-large: 2rem;
-  --shadow-card: 0 24px 80px -36px var(--color-shadow);
-  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  --radius-small: 0.5rem;
+  --radius-medium: 0.85rem;
+  --radius-large: 1.25rem;
+  --shadow-card: 0 20px 60px -34px var(--color-shadow);
+
+  --grid-pattern: linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  --grid-size: 28px 28px;
 }
 
 html[data-theme='dark'] {
-  --color-background: #07111f;
-  --color-background-soft: #0c1b30;
-  --color-surface: rgba(13, 29, 51, 0.86);
-  --color-surface-solid: #0d1d33;
-  --color-text: #d8e4f4;
-  --color-heading: #f7fbff;
-  --color-muted: #91a1b7;
-  --color-primary: #67a8ff;
-  --color-primary-strong: #93c2ff;
-  --color-primary-soft: rgba(59, 130, 246, 0.15);
-  --color-accent: #55d7ec;
-  --color-success: #52d3a0;
-  --color-border: rgba(170, 199, 236, 0.15);
-  --color-shadow: rgba(0, 0, 0, 0.5);
-  --header-background: rgba(7, 17, 31, 0.82);
+  --color-background: #07161c;
+  --color-background-soft: #0c2029;
+  --color-surface: rgba(13, 33, 42, 0.9);
+  --color-surface-solid: #0d212a;
+
+  --color-text: #c6d9de;
+  --color-heading: #f1f8f9;
+  --color-muted: #7e97a0;
+
+  --color-primary: #e8794a;
+  --color-primary-strong: #f4a17c;
+  --color-primary-soft: rgba(232, 121, 74, 0.15);
+  --color-on-primary: #06141a;
+
+  --color-accent: #35ad97;
+  --color-accent-soft: rgba(53, 173, 151, 0.14);
+  --color-success: #35ad97;
+
+  --color-border: rgba(150, 190, 201, 0.16);
+  --color-border-strong: rgba(150, 190, 201, 0.3);
+  --color-shadow: rgba(0, 0, 0, 0.55);
+  --color-grid: rgba(150, 190, 201, 0.06);
+
+  --header-background: rgba(7, 22, 28, 0.86);
 }

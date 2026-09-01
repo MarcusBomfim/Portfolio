@@ -1,5 +1,5 @@
 import { Award, Cloud, Code2, ExternalLink, ShieldCheck } from 'lucide-react'
-import { certificates } from '../data/portfolio'
+import { useContent } from '../i18n/useContent'
 
 const issuerIcons = {
   aws: Cloud,
@@ -8,18 +8,17 @@ const issuerIcons = {
 }
 
 export function CertificatesSection() {
+  const { certificates, ui } = useContent()
+
   return (
     <section id="certificados" className="certificates-section section-shell">
       <header className="certificates-intro">
-        <h2 className="section-label">Certificados</h2>
-        <p>
-          Formações concluídas em desenvolvimento de software, computação em
-          nuvem, redes e cibersegurança.
-        </p>
+        <h2 className="section-label">{certificates.label}</h2>
+        <p>{certificates.description}</p>
       </header>
 
       <div className="certificates-grid">
-        {certificates.map((certificate) => {
+        {certificates.items.map((certificate) => {
           const IssuerIcon = issuerIcons[certificate.type]
 
           return (
@@ -32,33 +31,48 @@ export function CertificatesSection() {
                 href={certificate.document}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`Abrir certificado ${certificate.title}`}
+                aria-label={ui.openCertificate(certificate.title)}
               >
                 <img
                   src={certificate.preview}
-                  alt={`Prévia do certificado ${certificate.title}`}
+                  alt={ui.certificatePreview(certificate.title)}
                   loading="lazy"
+                  decoding="async"
                 />
-                <span><Award aria-hidden="true" /> Certificado concluído</span>
+                <span>
+                  <Award aria-hidden="true" />
+                  {ui.certificateCompleted}
+                </span>
               </a>
 
               <div className="certificate-content">
                 <div className="certificate-meta">
-                  <span><IssuerIcon aria-hidden="true" />{certificate.issuer}</span>
-                  <time dateTime={certificate.issuedAt}>{certificate.issuedAtLabel}</time>
+                  <span>
+                    <IssuerIcon aria-hidden="true" />
+                    {certificate.issuer}
+                  </span>
+                  <time dateTime={certificate.issuedAt}>
+                    {certificate.issuedAtLabel}
+                  </time>
                 </div>
+
                 <h3>{certificate.title}</h3>
                 <p>{certificate.description}</p>
-                <ul aria-label={`Competências do certificado ${certificate.title}`}>
-                  {certificate.skills.map((skill) => <li key={skill}>{skill}</li>)}
+
+                <ul aria-label={ui.certificateSkills(certificate.title)}>
+                  {certificate.skills.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
                 </ul>
+
                 <a
                   className="certificate-link"
                   href={certificate.document}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Visualizar certificado <ExternalLink aria-hidden="true" />
+                  {ui.viewCertificate}
+                  <ExternalLink aria-hidden="true" />
                 </a>
               </div>
             </article>

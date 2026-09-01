@@ -1,0 +1,254 @@
+/*
+ * O painel de contato é sempre escuro, nos dois temas: é o fecho da página.
+ * Por isso ele carrega o próprio conjunto de cores, declarado por extenso.
+ */
+
+.contact-panel {
+  --panel-ground: #07161c;
+  --panel-ink: #f1f8f9;
+  --panel-muted: #93aeb6;
+  --panel-line: rgba(150, 190, 201, 0.2);
+  --panel-surface: rgba(255, 255, 255, 0.045);
+  --panel-accent: #e8794a;
+  --panel-accent-strong: #f49468;
+  --panel-on-accent: #06141a;
+  --panel-depth: #35ad97;
+
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+  overflow: clip;
+  border-radius: var(--radius-large);
+  background: var(--panel-ground);
+  color: var(--panel-ink);
+}
+
+.contact-panel::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image: linear-gradient(rgba(150, 190, 201, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(150, 190, 201, 0.05) 1px, transparent 1px);
+  background-size: var(--grid-size);
+  mask-image: radial-gradient(circle at 80% 20%, #000, transparent 70%);
+  content: '';
+  pointer-events: none;
+}
+
+.contact-content,
+.contact-card {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+  color: var(--panel-depth);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-eyebrow svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.contact-content h2 {
+  max-width: 16ch;
+  margin: 0 0 1rem;
+  color: var(--panel-ink);
+  font-size: clamp(1.9rem, 4.4vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.contact-content > p {
+  max-width: 46ch;
+  margin: 0 0 2rem;
+  color: var(--panel-muted);
+  font-size: var(--text-lead);
+  line-height: 1.7;
+}
+
+.contact-primary {
+  display: inline-flex;
+  min-height: 3.1rem;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--radius-small);
+  color: var(--panel-on-accent);
+  background: var(--panel-accent);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease;
+}
+
+.contact-primary:hover {
+  background: var(--panel-accent-strong);
+  transform: translateY(-2px);
+}
+
+.contact-primary svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.contact-primary svg:last-child {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.contact-secondary-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 1.25rem;
+  margin-left: -0.65rem;
+}
+
+.contact-secondary-links a {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-small);
+  color: var(--panel-muted);
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.contact-secondary-links a:hover {
+  color: var(--panel-ink);
+  background: var(--panel-surface);
+}
+
+.contact-secondary-links svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.contact-card {
+  padding: 1.35rem;
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius-medium);
+  background: var(--panel-surface);
+}
+
+.contact-card > span {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: var(--panel-depth);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.contact-card-email {
+  display: block;
+  overflow-wrap: anywhere;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--panel-line);
+  color: var(--panel-ink);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  text-decoration: none;
+}
+
+.contact-card-email:hover {
+  color: var(--panel-accent);
+}
+
+.contact-card > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding-top: 0.9rem;
+}
+
+.contact-card > div > svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  margin-top: 0.25rem;
+  color: var(--panel-muted);
+}
+
+.contact-card p {
+  margin: 0;
+}
+
+.contact-card small {
+  display: block;
+  color: var(--panel-muted);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-card p > a {
+  color: var(--panel-ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-card p > a:hover {
+  color: var(--panel-accent);
+}
+
+@media (max-width: 980px) {
+  .contact-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    max-width: 28rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .contact-panel {
+    padding: 1.5rem;
+    border-radius: var(--radius-medium);
+  }
+
+  .contact-content h2 {
+    max-width: 100%;
+  }
+
+  .contact-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/*
+ * O painel é escuro nos dois temas, então o anel de foco global (verde-escuro)
+ * ficaria com contraste insuficiente aqui. Usa-se a variante clara do acento.
+ */
+.contact-panel :focus-visible {
+  outline-color: var(--panel-depth);
+}

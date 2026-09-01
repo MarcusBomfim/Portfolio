@@ -1,10 +1,10 @@
 {
   "name": "Portfólio — Marcus Bomfim",
   "short_name": "Marcus Bomfim",
-  "description": "Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack.",
+  "description": "Desenvolvedor Full Stack. Software para operação portuária e logística.",
   "lang": "pt-BR",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f4f7fb",
-  "theme_color": "#075fdb"
+  "background_color": "#eef1f2",
+  "theme_color": "#a9421f"
 }

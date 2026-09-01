@@ -1,10 +1,6 @@
-import {
-  Database,
-  PanelsTopLeft,
-  ServerCog,
-} from 'lucide-react'
+import { Database, PanelsTopLeft, ServerCog } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { skillGroups } from '../data/portfolio'
+import { useContent } from '../i18n/useContent'
 import type { SkillGroup } from '../types/portfolio'
 
 const skillIcons: Record<SkillGroup['type'], LucideIcon> = {
@@ -14,45 +10,45 @@ const skillIcons: Record<SkillGroup['type'], LucideIcon> = {
 }
 
 export function SkillsSection() {
+  const { skills, ui } = useContent()
+
   return (
     <section id="tecnologias" className="skills-section">
       <div className="section-shell">
-        <h2 className="section-label">Tecnologias e competências</h2>
+        <h2 className="section-label">{skills.label}</h2>
 
         <div className="skills-grid">
-          {skillGroups.map((group, index) => {
+          {skills.groups.map((group) => {
             const Icon = skillIcons[group.type]
 
             return (
               <article
                 className={`skill-card skill-card-${group.type}`}
-                key={group.title}
+                key={group.type}
               >
                 <header>
                   <span className="skill-icon">
                     <Icon aria-hidden="true" />
                   </span>
-                  <span className="skill-number">0{index + 1}</span>
+                  <span className="skill-tag">{group.title}</span>
                 </header>
-                <h3>{group.title}</h3>
-                <p>{group.description}</p>
-                <ul
-                  className="skill-list"
-                  aria-label={`Tecnologias de ${group.title}`}
-                >
+
+                <p className="skill-description">{group.description}</p>
+
+                <ul className="skill-list" aria-label={ui.skillsOf(group.title)}>
                   {group.items.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
+
                 <div className="skill-application">
-                  <strong>Aplicação prática</strong>
+                  <strong>{ui.practicalUse}</strong>
                   <p>{group.application}</p>
                 </div>
               </article>
             )
           })}
         </div>
-
       </div>
     </section>
   )
