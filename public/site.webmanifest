@@ -1,10 +1,23 @@
 {
   "name": "Portfólio — Marcus Bomfim",
   "short_name": "Marcus Bomfim",
-  "description": "Desenvolvedor Full Stack. Software para operação portuária e logística.",
+  "description": "Desenvolvedor Full Stack. Aplicações web completas em C#/.NET, React e bancos de dados relacionais.",
   "lang": "pt-BR",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#eef1f2",
-  "theme_color": "#a9421f"
+  "theme_color": "#a9421f",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ]
 }

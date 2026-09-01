@@ -44,22 +44,22 @@ const certificateAssets = {
   csharp: {
     document:
       'https://www.freecodecamp.org/certification/marcusbomfim/foundational-c-sharp-with-microsoft',
-    preview: '/certificates/freecodecamp-foundational-csharp-microsoft.png',
+    preview: '/certificates/freecodecamp-foundational-csharp-microsoft.webp',
     issuedAt: '2026-08-26',
   },
   aws: {
     document: '/certificates/aws-cloud-practitioner-essentials.pdf',
-    preview: '/certificates/aws-cloud-practitioner-essentials.png',
+    preview: '/certificates/aws-cloud-practitioner-essentials.webp',
     issuedAt: '2026-08-20',
   },
   defense: {
     document: '/certificates/cisco-network-defense.pdf',
-    preview: '/certificates/cisco-network-defense.png',
+    preview: '/certificates/cisco-network-defense.webp',
     issuedAt: '2025-04-10',
   },
   network: {
     document: '/certificates/cisco-network-technician-career-path.pdf',
-    preview: '/certificates/cisco-network-technician-career-path.png',
+    preview: '/certificates/cisco-network-technician-career-path.webp',
     issuedAt: '2025-04-17',
   },
 }
@@ -402,6 +402,7 @@ const pt: Content = {
     curriculumTitle: (updatedAt) => `Currículo em PDF — atualizado em ${updatedAt}`,
     statsLabel: 'Números do portfólio',
     previews: {
+      illustration: 'Ilustração da interface — não é captura de tela',
       ships: {
         toolbar: 'Escalas / torre de controle',
         eyebrow: 'Janela de atracação',
@@ -412,7 +413,7 @@ const pt: Content = {
       },
       asiaLog: {
         toolbar: 'AsiaLogService / interface em funcionamento',
-        caption: 'Consulta de logs com dados fornecidos pela API do projeto.',
+        caption: 'Captura real: consulta de logs com dados da API do projeto.',
         alt: 'Interface real do AsiaLogService exibindo filtros e logs processados por integração',
       },
       scheduling: {
@@ -774,6 +775,7 @@ const en: Content = {
     curriculumTitle: (updatedAt) => `Résumé in PDF — updated ${updatedAt}`,
     statsLabel: 'Portfolio in numbers',
     previews: {
+      illustration: 'Interface illustration — not a screenshot',
       ships: {
         toolbar: 'Ship calls / control tower',
         eyebrow: 'Mooring window',
@@ -784,7 +786,7 @@ const en: Content = {
       },
       asiaLog: {
         toolbar: 'AsiaLogService / running interface',
-        caption: 'Log query served by the project API.',
+        caption: 'Actual screenshot: log query served by the project API.',
         alt: 'Live AsiaLogService interface showing filters and logs processed per integration',
       },
       scheduling: {

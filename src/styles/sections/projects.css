@@ -262,11 +262,42 @@
   display: flex;
   min-width: 0;
   flex-direction: column;
+  margin: 0;
   overflow: hidden;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-medium);
   background: var(--color-background-soft);
   box-shadow: var(--shadow-card);
+}
+
+/*
+ * Legenda obrigatória em toda prévia: separa o que é captura de tela real do
+ * que é maquete. Sem isso o visitante não tem como distinguir.
+ */
+.preview-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding: 0.7rem 0.85rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-solid);
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.preview-note svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.preview-note.is-real {
+  color: var(--color-accent);
 }
 
 .preview-toolbar {
@@ -298,12 +329,7 @@
 
 /* Captura real */
 
-.project-preview-real {
-  margin: 0;
-}
-
 .real-interface-frame {
-  flex: 1;
   overflow: hidden;
   background: var(--color-surface-solid);
 }
@@ -312,15 +338,6 @@
   display: block;
   width: 100%;
   height: auto;
-}
-
-.project-preview-real figcaption {
-  padding: 0.7rem 0.85rem;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-muted);
-  font-family: var(--font-mono);
-  font-size: 0.64rem;
-  line-height: 1.5;
 }
 
 /* Quadro de escalas */

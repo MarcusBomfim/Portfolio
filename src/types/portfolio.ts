@@ -144,8 +144,12 @@ export interface UiStrings {
   previews: PreviewStrings
 }
 
-/** Textos das maquetes de interface exibidas ao lado de cada projeto. */
+/**
+ * Textos das prévias exibidas ao lado de cada projeto. Só o AsiaLogService é
+ * captura de tela; as demais são maquetes, e a legenda diz isso na cara.
+ */
 export interface PreviewStrings {
+  illustration: string
   ships: {
     toolbar: string
     eyebrow: string

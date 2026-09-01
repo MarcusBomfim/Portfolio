@@ -5,6 +5,7 @@ import {
   Code2,
   ExternalLink,
   PackageCheck,
+  PencilRuler,
   Ship,
   Truck,
 } from 'lucide-react'
@@ -24,7 +25,7 @@ interface ProjectPreviewProps {
 
 function PreviewToolbar({ title }: { title: string }) {
   return (
-    <div className="preview-toolbar">
+    <div className="preview-toolbar" aria-hidden="true">
       <span />
       <span />
       <span />
@@ -33,15 +34,25 @@ function PreviewToolbar({ title }: { title: string }) {
   )
 }
 
+/** Legenda das maquetes: deixa claro que não são captura de tela. */
+function IllustrationNote({ label }: { label: string }) {
+  return (
+    <figcaption className="preview-note">
+      <PencilRuler aria-hidden="true" />
+      {label}
+    </figcaption>
+  )
+}
+
 function ProjectPreview({ project, labels }: ProjectPreviewProps) {
   if (project.preview === 'ships') {
     const { ships } = labels
 
     return (
-      <div className="project-preview project-preview-ships" aria-hidden="true">
+      <figure className="project-preview project-preview-ships">
         <PreviewToolbar title={ships.toolbar} />
 
-        <div className="ships-layout">
+        <div className="ships-layout" aria-hidden="true">
           <div className="ships-heading">
             <div>
               <span>{ships.eyebrow}</span>
@@ -83,7 +94,9 @@ function ProjectPreview({ project, labels }: ProjectPreviewProps) {
             </div>
           </div>
         </div>
-      </div>
+
+        <IllustrationNote label={labels.illustration} />
+      </figure>
     )
   }
 
@@ -103,7 +116,10 @@ function ProjectPreview({ project, labels }: ProjectPreviewProps) {
             decoding="async"
           />
         </div>
-        <figcaption>{asiaLog.caption}</figcaption>
+        <figcaption className="preview-note is-real">
+          <CheckCircle2 aria-hidden="true" />
+          {asiaLog.caption}
+        </figcaption>
       </figure>
     )
   }
@@ -112,10 +128,10 @@ function ProjectPreview({ project, labels }: ProjectPreviewProps) {
     const { scheduling } = labels
 
     return (
-      <div className="project-preview project-preview-scheduling" aria-hidden="true">
+      <figure className="project-preview project-preview-scheduling">
         <PreviewToolbar title={scheduling.toolbar} />
 
-        <div className="schedule-layout">
+        <div className="schedule-layout" aria-hidden="true">
           <div className="schedule-heading">
             <div>
               <span>{scheduling.eyebrow}</span>
@@ -144,17 +160,19 @@ function ProjectPreview({ project, labels }: ProjectPreviewProps) {
             ))}
           </div>
         </div>
-      </div>
+
+        <IllustrationNote label={labels.illustration} />
+      </figure>
     )
   }
 
   const { inventory } = labels
 
   return (
-    <div className="project-preview project-preview-inventory" aria-hidden="true">
+    <figure className="project-preview project-preview-inventory">
       <PreviewToolbar title={inventory.toolbar} />
 
-      <div className="inventory-layout">
+      <div className="inventory-layout" aria-hidden="true">
         <div className="inventory-heading">
           <div>
             <span>{inventory.eyebrow}</span>
@@ -183,7 +201,9 @@ function ProjectPreview({ project, labels }: ProjectPreviewProps) {
           ))}
         </div>
       </div>
-    </div>
+
+      <IllustrationNote label={labels.illustration} />
+    </figure>
   )
 }
 
