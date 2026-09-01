@@ -1,6 +1,6 @@
 # Portfólio — Marcus Bomfim
 
-Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack. O site é construído em torno de um recorte específico: **software para operação portuária e logística**, o domínio em que estão todos os projetos apresentados.
+Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack. O site apresenta quatro estudos de caso com o problema, as decisões técnicas e o que foi entregue em cada projeto — nenhum deles é clone de tutorial.
 
 **Acesse o projeto:** [marcus-bomfim-portfolio.vercel.app](https://marcus-bomfim-portfolio.vercel.app/)
 
@@ -8,7 +8,7 @@ Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack. O site é co
 
 ## Conteúdo
 
-- Apresentação com posicionamento no setor portuário e prova numérica logo abaixo
+- Apresentação direta do que construo, com prova numérica logo abaixo
 - Quatro estudos de caso com problema, desafio, decisões técnicas e resultado
 - Métricas verificáveis nos projetos: testes automatizados, pipelines de CI, perfis de acesso
 - Competências de front-end, back-end, dados e entrega
@@ -33,15 +33,17 @@ Os temas claro e escuro seguem a preferência do sistema, também com alternânc
 
 ## Identidade visual
 
-A paleta e a tipografia saem do vocabulário do porto:
+Neutros levemente puxados para o azul-esverdeado, um acento quente e um verde de apoio:
 
-| Token | Cor | Uso |
+| Cor | Valor | Uso |
 | --- | --- | --- |
-| Casco | `#07161c` | Fundo do tema escuro |
-| Névoa | `#eef1f2` | Fundo do tema claro |
-| Boia | `#a9421f` | Ação — reservada ao que é clicável |
-| Sondagem | `#0c5c52` | Confirmação e apoio |
-| Bruma | `#536c76` | Texto auxiliar |
+| Fundo escuro | `#07161c` | Base do tema escuro |
+| Fundo claro | `#eef1f2` | Base do tema claro |
+| Acento | `#a9421f` | Ação — reservado ao que é clicável e a números |
+| Apoio | `#0c5c52` | Confirmação e destaque secundário |
+| Texto auxiliar | `#536c76` | Descrições e rótulos |
+
+A regra que segura o conjunto é a do acento único: nenhuma outra cor disputa atenção com o que precisa ser clicado.
 
 A tipografia usa três papéis: **Archivo** nos títulos, **Inter** no texto corrido e **IBM Plex Mono** em rótulos, métricas e dados.
 

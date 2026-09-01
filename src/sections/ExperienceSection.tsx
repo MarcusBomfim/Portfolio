@@ -1,4 +1,4 @@
-import { Anchor, ArrowRight, CheckCircle2, Code2 } from 'lucide-react'
+import { ArrowRight, BriefcaseBusiness, CheckCircle2, Code2 } from 'lucide-react'
 import { useContent } from '../i18n/useContent'
 
 export function ExperienceSection() {
@@ -12,7 +12,7 @@ export function ExperienceSection() {
 
           <div className="career-bridge">
             <div className="career-bridge-icons" aria-hidden="true">
-              <Anchor />
+              <BriefcaseBusiness />
               <ArrowRight />
               <Code2 />
             </div>

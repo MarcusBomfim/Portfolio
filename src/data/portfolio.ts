@@ -74,7 +74,7 @@ const pt: Content = {
     about:
       'Sou formado em Sistemas para Internet e atuo profissionalmente com infraestrutura e suporte de TI. Em desenvolvimento, construo aplicações com TypeScript, React, Node.js, C#/.NET e bancos de dados relacionais.',
     aboutComplement:
-      'Antes da TI, passei quase um ano em uma corretora de navios controlando documentos de embarque e falando com agentes portuários. É por isso que modelar escala de navio, janela de berço e capacidade de terminal não é abstração para mim.',
+      'Já passei por rotinas administrativas e hoje atuo com infraestrutura. Essa mistura me ajuda a enxergar o produto além do código: considero o ambiente, a segurança, a manutenção e a rotina de quem usa a solução todo dia.',
     goal:
       'Busco uma oportunidade em desenvolvimento Full Stack para contribuir com projetos reais, aprender com o time e evoluir continuamente como desenvolvedor.',
   },
@@ -89,11 +89,11 @@ const pt: Content = {
   ],
 
   hero: {
-    eyebrow: 'Full Stack · Baixada Santista',
-    headline: 'Construo software para',
-    headlineAccent: 'operação portuária.',
+    eyebrow: 'Full Stack · São Vicente, SP',
+    headline: 'Construo software',
+    headlineAccent: 'do banco à interface.',
     description:
-      'Sistemas completos, da escala de navio ao agendamento de caminhão em terminal, com C#/.NET, React e bancos relacionais. Antes de programar para o setor, eu trabalhei nele.',
+      'Aplicações completas em C#/.NET, React e bancos relacionais, com autenticação, testes automatizados e entrega em Docker. Cada projeto aqui resolve um problema real, não um exercício de tutorial.',
     primaryAction: 'Ver os projetos',
     secondaryAction: 'Baixar currículo',
     stackLabel: 'Stack principal',
@@ -328,9 +328,9 @@ const pt: Content = {
 
   experience: {
     label: 'Experiência',
-    bridgeTitle: 'A rotina do porto virou requisito de software',
+    bridgeTitle: 'Rotina de trabalho vira requisito de software',
     bridgeText:
-      'Controlar documento de embarque e falar com agente portuário ensina onde a operação trava. É esse conhecimento que aparece nas regras de negócio dos meus projetos.',
+      'Atender usuário, resolver incidente e organizar documento ensina onde o processo trava na prática. É esse conhecimento que aparece nas regras de negócio dos meus projetos.',
     items: [
       {
         company: 'Prefeitura Municipal de São Vicente',
@@ -363,7 +363,7 @@ const pt: Content = {
 
   contact: {
     eyebrow: 'Disponível para oportunidades',
-    title: 'Vamos conversar sobre a próxima operação?',
+    title: 'Vamos transformar sua ideia em uma solução real?',
     description:
       'Busco uma posição em desenvolvimento Full Stack. Se o perfil fizer sentido para o seu time, respondo no mesmo dia.',
     primaryAction: 'Enviar e-mail',
@@ -446,7 +446,7 @@ const en: Content = {
     about:
       'I hold a degree in Internet Systems and work professionally in IT infrastructure and support. On the development side, I build applications with TypeScript, React, Node.js, C#/.NET and relational databases.',
     aboutComplement:
-      'Before IT, I spent close to a year at a shipbroking firm handling shipping documents and coordinating with port agents. That is why modelling ship calls, berth windows and terminal capacity is not an abstraction to me.',
+      'I have worked in administrative routines and now work in infrastructure. That mix helps me see the product beyond the code: I think about the environment, security, maintenance and the daily routine of whoever uses the system.',
     goal:
       'I am looking for a Full Stack development role where I can contribute to real projects, learn from the team and keep growing as an engineer.',
   },
@@ -461,11 +461,11 @@ const en: Content = {
   ],
 
   hero: {
-    eyebrow: 'Full Stack · Port of Santos region',
-    headline: 'I build software for',
-    headlineAccent: 'port operations.',
+    eyebrow: 'Full Stack · São Vicente, Brazil',
+    headline: 'I build software',
+    headlineAccent: 'from data to screen.',
     description:
-      'Complete systems, from ship call planning to truck scheduling at terminals, built with C#/.NET, React and relational databases. Before I wrote software for the industry, I worked in it.',
+      'Complete applications in C#/.NET, React and relational databases, with authentication, automated tests and Docker delivery. Every project here solves a real problem, not a tutorial exercise.',
     primaryAction: 'See the projects',
     secondaryAction: 'Download résumé',
     stackLabel: 'Core stack',
@@ -700,9 +700,9 @@ const en: Content = {
 
   experience: {
     label: 'Experience',
-    bridgeTitle: 'Port routine turned into software requirements',
+    bridgeTitle: 'Everyday work turns into software requirements',
     bridgeText:
-      'Handling shipping documents and talking to port agents teaches you exactly where an operation stalls. That knowledge is what shows up in the business rules of my projects.',
+      'Supporting users, resolving incidents and organising paperwork teaches you exactly where a process stalls. That knowledge is what shows up in the business rules of my projects.',
     items: [
       {
         company: 'City of São Vicente',
@@ -735,7 +735,7 @@ const en: Content = {
 
   contact: {
     eyebrow: 'Open to opportunities',
-    title: 'Shall we talk about the next operation?',
+    title: 'Shall we turn your idea into a working product?',
     description:
       'I am looking for a Full Stack development role. If the profile fits your team, I reply the same day.',
     primaryAction: 'Send an e-mail',

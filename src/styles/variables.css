@@ -1,7 +1,7 @@
 /*
- * Identidade: vocabulário do porto.
- * Névoa (fundo claro), casco (fundo escuro), boia (ação) e sondagem (apoio).
- * Um único acento quente, reservado para o que é clicável.
+ * Neutros levemente puxados para o azul-esverdeado, um acento quente e um
+ * verde de apoio. A regra que segura o conjunto: o acento quente aparece
+ * apenas no que é clicável e em números — todo o resto fica quieto.
  */
 
 :root {
@@ -36,7 +36,7 @@
   --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas,
     monospace;
 
-  --text-hero: clamp(2.6rem, 6.4vw, 4.4rem);
+  --text-hero: clamp(2.4rem, 5.2vw, 3.6rem);
   --text-h2: clamp(1.85rem, 3.6vw, 2.7rem);
   --text-h3: clamp(1.3rem, 2vw, 1.6rem);
   --text-lead: clamp(1.02rem, 1.35vw, 1.18rem);
