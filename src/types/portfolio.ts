@@ -32,7 +32,7 @@ export interface Project {
   repository?: string
   demo?: string
   featured?: boolean
-  preview: 'ships' | 'observability' | 'scheduling' | 'inventory'
+  preview: 'ships' | 'observability' | 'scheduling' | 'inventory' | 'works'
 }
 
 export interface Experience {
@@ -181,6 +181,18 @@ export interface PreviewStrings {
     movements: string
     items: [string, string, string]
     unit: string
+  }
+  works: {
+    toolbar: string
+    eyebrow: string
+    title: string
+    executed: string
+    expected: string
+    progress: string
+    measured: string
+    diaries: string
+    axisStart: string
+    axisEnd: string
   }
 }
 

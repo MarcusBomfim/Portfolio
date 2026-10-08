@@ -4,6 +4,7 @@ import {
   CheckCircle2,
   Code2,
   ExternalLink,
+  HardHat,
   PackageCheck,
   PencilRuler,
   Ship,
@@ -158,6 +159,64 @@ function ProjectPreview({ project, labels }: ProjectPreviewProps) {
                 <small>{row.status}</small>
               </div>
             ))}
+          </div>
+        </div>
+
+        <IllustrationNote label={labels.illustration} />
+      </figure>
+    )
+  }
+
+  if (project.preview === 'works') {
+    const { works } = labels
+
+    /*
+     * A curva S do projeto é SVG gerado no servidor, sem biblioteca de
+     * gráfico — então a maquete aqui também é SVG escrito à mão, para não
+     * prometer uma tecnologia que o projeto não usa.
+     */
+    return (
+      <figure className="project-preview project-preview-works">
+        <PreviewToolbar title={works.toolbar} />
+
+        <div className="works-layout" aria-hidden="true">
+          <div className="works-heading">
+            <div>
+              <span>{works.eyebrow}</span>
+              <strong>{works.title}</strong>
+            </div>
+            <HardHat />
+          </div>
+
+          <div className="works-chart">
+            <svg viewBox="0 0 240 92" preserveAspectRatio="none" role="presentation">
+              {/* Ritmo linear esperado: a referência mais ingênua possível,
+                  e o projeto é explícito sobre isso. */}
+              <line className="works-line-expected" x1="4" y1="86" x2="236" y2="10" />
+
+              {/* Executado: devagar no começo, acelera no miolo — a curva S. */}
+              <path
+                className="works-line-executed"
+                d="M4 86 C 48 84, 70 74, 96 56 S 150 24, 186 18"
+              />
+              <circle className="works-point" cx="186" cy="18" r="3.5" />
+            </svg>
+
+            <div className="works-axis">
+              <span>{works.axisStart}</span>
+              <span>{works.axisEnd}</span>
+            </div>
+          </div>
+
+          <div className="works-legend">
+            <span className="is-executed">{works.executed}</span>
+            <span className="is-expected">{works.expected}</span>
+          </div>
+
+          <div className="works-summary">
+            <div><span>{works.progress}</span><strong>72%</strong></div>
+            <div><span>{works.measured}</span><strong>R$ 318 mil</strong></div>
+            <div><span>{works.diaries}</span><strong>64</strong></div>
           </div>
         </div>
 

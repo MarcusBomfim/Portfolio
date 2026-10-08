@@ -25,6 +25,7 @@ const repositories = {
   asiaLog: 'https://github.com/MarcusBomfim/AsiaLogService',
   scheduling: 'https://github.com/MarcusBomfim/agendamento-caminhoes',
   inventory: 'https://github.com/MarcusBomfim/Controle-Estoque',
+  works: 'https://github.com/MarcusBomfim/gestao-obras',
 }
 
 /**
@@ -38,6 +39,7 @@ const stacks = {
   asiaLog: ['C#', '.NET 8', 'SQL Server', 'Docker', 'Prometheus', 'Grafana'],
   scheduling: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
   inventory: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'CSS'],
+  works: ['PHP 8.1', 'SQLite', 'SQL', 'GitHub Actions'],
 }
 
 const certificateAssets = {
@@ -172,7 +174,7 @@ const pt: Content = {
     eyebrow: 'Projetos selecionados',
     title: 'Código aplicado a cenários reais',
     description:
-      'Quatro estudos de caso com o problema, as decisões técnicas e o que foi entregue. Nenhum é clone de tutorial.',
+      'Cinco estudos de caso com o problema, as decisões técnicas e o que foi entregue. Nenhum é clone de tutorial.',
     items: [
       {
         id: 'ships',
@@ -274,6 +276,33 @@ const pt: Content = {
         repository: repositories.inventory,
         demo: demos.inventory,
         preview: 'inventory',
+      },
+      {
+        id: 'works',
+        title: 'Gestão de Obras',
+        category: 'Back-end e construção civil',
+        context: 'Projeto autoral · sem framework, de propósito',
+        description:
+          'Sistema de diário de obra, avanço físico e medição, escrito em PHP puro para deixar a arquitetura à vista em vez de escondê-la atrás de um framework.',
+        challenge:
+          'O diário de obra é documento contratual e, em obra pública, exigência legal — mas na prática vira caderno no barracão. Sem registro diário, a medição vira discussão com o cliente, o atraso só aparece quando já não dá para reagir e a obra não consegue comprovar os dias parados por chuva.',
+        solution:
+          'Modelei o domínio em 27 classes sem dependência de infraestrutura e derivei o avanço e a medição dos diários, em vez de pedir os três números separados. Roteador, sessão com token anti-CSRF, repositórios com PDO e migrations em SQL foram escritos à mão, com 207 testes e integração contínua em duas versões do PHP.',
+        highlights: [
+          'Medição refeita a partir dos diários, rastreável até o dia de origem',
+          'Curva S de avanço em SVG gerado no servidor, sem biblioteca de gráfico',
+          'Limite de tentativas de login por conta e por IP, com registro de acesso',
+          'Regras críticas repetidas no banco em CHECK e UNIQUE',
+        ],
+        metrics: [
+          { value: '207', label: 'testes automatizados' },
+          { value: '27', label: 'classes de domínio' },
+          { value: '0', label: 'dependências de terceiros' },
+        ],
+        technologies: stacks.works,
+        repository: repositories.works,
+        demo: demos.works,
+        preview: 'works',
       },
     ],
   },
@@ -435,6 +464,18 @@ const pt: Content = {
         items: ['Notebook corporativo', 'Monitor 24 polegadas', 'Teclado USB'],
         unit: 'un.',
       },
+      works: {
+        toolbar: 'Gestão de Obras / avanço físico',
+        eyebrow: 'Curva de avanço',
+        title: 'Residencial Vista Serra',
+        executed: 'Executado',
+        expected: 'Ritmo esperado',
+        progress: 'Avanço',
+        measured: 'Medido',
+        diaries: 'Diários',
+        axisStart: 'set.',
+        axisEnd: 'dez.',
+      },
     },
   },
 }
@@ -545,7 +586,7 @@ const en: Content = {
     eyebrow: 'Selected work',
     title: 'Code applied to real operations',
     description:
-      'Four case studies with the problem, the technical decisions and what shipped. None of them is a tutorial clone.',
+      'Five case studies with the problem, the technical decisions and what shipped. None of them is a tutorial clone.',
     items: [
       {
         id: 'ships',
@@ -647,6 +688,33 @@ const en: Content = {
         repository: repositories.inventory,
         demo: demos.inventory,
         preview: 'inventory',
+      },
+      {
+        id: 'works',
+        title: 'Construction Site Management',
+        category: 'Back-end and civil construction',
+        context: 'Personal project · framework-free on purpose',
+        description:
+          'Daily site log, physical progress and billing measurement, written in plain PHP to keep the architecture in plain sight instead of hiding it behind a framework.',
+        challenge:
+          'The daily site log is a contractual document and, on public works, a legal requirement — yet in practice it becomes a notebook in the site shed. Without a daily record, measurement turns into an argument with the client, delays surface too late to react, and the contractor cannot prove the days lost to rain.',
+        solution:
+          'I modelled the domain in 27 infrastructure-free classes and derived progress and measurement from the daily logs, instead of asking for the three numbers separately. Router, session with CSRF token, PDO repositories and SQL migrations were all hand-written, with 207 tests and continuous integration on two PHP versions.',
+        highlights: [
+          'Measurement recomputed from the logs, traceable back to the originating day',
+          'Server-rendered SVG S-curve, with no charting library',
+          'Login attempt limit per account and per IP, with an access log',
+          'Critical rules repeated in the database as CHECK and UNIQUE',
+        ],
+        metrics: [
+          { value: '207', label: 'automated tests' },
+          { value: '27', label: 'domain classes' },
+          { value: '0', label: 'third-party dependencies' },
+        ],
+        technologies: stacks.works,
+        repository: repositories.works,
+        demo: demos.works,
+        preview: 'works',
       },
     ],
   },
@@ -807,6 +875,18 @@ const en: Content = {
         movements: 'Movements',
         items: ['Corporate laptop', '24-inch monitor', 'USB keyboard'],
         unit: 'pcs',
+      },
+      works: {
+        toolbar: 'Construction management / physical progress',
+        eyebrow: 'Progress curve',
+        title: 'Vista Serra Residential',
+        executed: 'Executed',
+        expected: 'Expected pace',
+        progress: 'Progress',
+        measured: 'Measured',
+        diaries: 'Site logs',
+        axisStart: 'Sep',
+        axisEnd: 'Dec',
       },
     },
   },
