@@ -14,14 +14,22 @@ const identity = {
   linkedin: 'https://www.linkedin.com/in/marcus-bomfim-625495367/',
 }
 
+/** O currículo de cada idioma: o português em PDF, e o inglês, refeito do zero. */
 export const curriculum = {
-  url: `${import.meta.env.BASE_URL}curriculo-marcus-bomfim.pdf`,
-  downloadName: 'Marcus-Bomfim-Curriculo-Full-Stack.pdf',
-  updatedAt: { pt: 'ago. 2026', en: 'Aug 2026' },
+  url: {
+    pt: `${import.meta.env.BASE_URL}curriculo-marcus-bomfim.pdf`,
+    en: `${import.meta.env.BASE_URL}resume-marcus-bomfim-en.pdf`,
+  },
+  downloadName: {
+    pt: 'Marcus-Bomfim-Curriculo-Full-Stack.pdf',
+    en: 'Marcus-Bomfim-Resume-Full-Stack.pdf',
+  },
+  updatedAt: { pt: 'ago. 2026', en: 'Nov 2026' },
 }
 
 const repositories = {
   ships: 'https://github.com/MarcusBomfim/gestao-escalas-navios',
+  fraud: 'https://github.com/MarcusBomfim/antifraude-pix',
   asiaLog: 'https://github.com/MarcusBomfim/AsiaLogService',
   scheduling: 'https://github.com/MarcusBomfim/agendamento-caminhoes',
   inventory: 'https://github.com/MarcusBomfim/Controle-Estoque',
@@ -36,6 +44,7 @@ const demos: Partial<Record<keyof typeof repositories, string>> = {}
 
 const stacks = {
   ships: ['C# 14', '.NET 10', 'React', 'TypeScript', 'PostgreSQL', 'Docker'],
+  fraud: ['Python', 'LightGBM', 'Polars', 'MLflow', 'FastAPI', 'Docker', 'OpenTelemetry'],
   asiaLog: ['C#', '.NET 8', 'SQL Server', 'Docker', 'Prometheus', 'Grafana'],
   scheduling: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
   inventory: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'CSS'],
@@ -74,7 +83,7 @@ const pt: Content = {
     role: 'Desenvolvedor Full Stack',
     location: 'São Vicente, SP',
     about:
-      'Sou formado em Sistemas para Internet e atuo profissionalmente com infraestrutura e suporte de TI. Em desenvolvimento, construo aplicações com TypeScript, React, Node.js, C#/.NET e bancos de dados relacionais.',
+      'Sou formado em Sistemas para Internet e atuo profissionalmente com infraestrutura e suporte de TI. Em desenvolvimento, construo aplicações com TypeScript, React, Node.js, C#/.NET e bancos de dados relacionais, e modelos de machine learning em Python.',
     aboutComplement:
       'Já passei por rotinas administrativas e hoje atuo com infraestrutura. Essa mistura me ajuda a enxergar o produto além do código: considero o ambiente, a segurança, a manutenção e a rotina de quem usa a solução todo dia.',
     goal:
@@ -107,10 +116,10 @@ const pt: Content = {
   },
 
   stats: [
-    { value: '120', label: 'testes automatizados' },
-    { value: '4', label: 'estudos de caso' },
+    { value: '831', label: 'testes automatizados' },
+    { value: '6', label: 'estudos de caso' },
     { value: '4', label: 'certificações técnicas' },
-    { value: '3', label: 'pipelines de CI/CD' },
+    { value: '7', label: 'pipelines de CI/CD' },
   ],
 
   about: {
@@ -148,7 +157,7 @@ const pt: Content = {
           'APIs e serviços com regras de negócio bem definidas, validação e segurança.',
         application:
           'APIs REST, autenticação JWT, controle de acesso por papel, tarefas em segundo plano e integrações.',
-        items: ['C#', '.NET 8 e 10', 'ASP.NET Core', 'Node.js', 'APIs REST'],
+        items: ['C#', '.NET 8 e 10', 'ASP.NET Core', 'Node.js', 'Python', 'FastAPI', 'APIs REST'],
         type: 'backend',
       },
       {
@@ -156,13 +165,16 @@ const pt: Content = {
         description:
           'Persistência relacional e as ferramentas que levam o código até produção.',
         application:
-          'Modelagem, consultas SQL, containers, integração contínua, testes automatizados e observabilidade.',
+          'Modelagem, consultas SQL, modelos de machine learning, containers, integração contínua, testes automatizados e observabilidade.',
         items: [
           'PostgreSQL',
           'SQL Server',
           'Entity Framework Core',
+          'LightGBM',
+          'MLflow',
           'Docker',
           'GitHub Actions',
+          'OpenTelemetry',
           'Prometheus',
         ],
         type: 'data',
@@ -174,7 +186,7 @@ const pt: Content = {
     eyebrow: 'Projetos selecionados',
     title: 'Código aplicado a cenários reais',
     description:
-      'Cinco estudos de caso com o problema, as decisões técnicas e o que foi entregue. Nenhum é clone de tutorial.',
+      'Seis estudos de caso com o problema, as decisões técnicas e o que foi entregue. Nenhum é clone de tutorial.',
     items: [
       {
         id: 'ships',
@@ -194,7 +206,7 @@ const pt: Content = {
           'CodeQL, Dependabot e testes de carga com k6 na esteira',
         ],
         metrics: [
-          { value: '120', label: 'testes automatizados' },
+          { value: '143', label: 'testes automatizados' },
           { value: '3', label: 'pipelines de CI' },
           { value: '4', label: 'perfis de acesso' },
         ],
@@ -203,6 +215,34 @@ const pt: Content = {
         demo: demos.ships,
         featured: true,
         preview: 'ships',
+      },
+      {
+        id: 'fraud',
+        title: 'Antifraude Pix',
+        category: 'Machine learning e tempo real',
+        context: 'Projeto autoral · oito partes concluídas',
+        description:
+          'Detecção de fraude em Pix do lado do banco de quem paga: cada Pix é aprovado, segurado para o cliente confirmar ou bloqueado antes de sair, com o porquê em português.',
+        challenge:
+          'Não existe base pública de Pix, o golpe é menos de 0,1% das transações e o rótulo chega dias depois, quando a vítima contesta. O modelo tem de decidir sem olhar o futuro, pelo custo de cada erro, sem errar mais com os idosos, e perceber quando o golpe muda de tática.',
+        solution:
+          'Escrevi um simulador com os golpes que acontecem no Brasil e 33 variáveis calculadas só com o passado de cada Pix. O LightGBM calibrado decide pelo custo, rastreado no MLflow; uma API em FastAPI decide em tempo real com as mesmas variáveis do treino, provadas Pix a Pix. O monitor percebe pelo rótulo atrasado o golpe novo que a deriva dos dados não vê, e o serviço vai para o ar numa imagem Docker, observado pelo OpenTelemetry sem nenhum dado pessoal.',
+        highlights: [
+          'Precisão média de 0,93, contra 0,42 das regras de hoje, validada mês a mês',
+          'Decidir pelo custo: R$ 101 mil, contra R$ 1,76 milhão aprovando tudo',
+          'Decisão em 0,15 ms e ida e volta pela API em 1,2 ms, na mediana',
+          'Retreino que só troca o modelo quando o novo ganha nos mesmos Pix',
+        ],
+        metrics: [
+          { value: '456', label: 'testes automatizados' },
+          { value: '0,93', label: 'precisão média' },
+          { value: '25', label: 'decisões registradas' },
+        ],
+        technologies: stacks.fraud,
+        repository: repositories.fraud,
+        demo: demos.fraud,
+        featured: true,
+        preview: 'fraud',
       },
       {
         id: 'asiaLog',
@@ -445,6 +485,11 @@ const pt: Content = {
         caption: 'Captura real: consulta de logs com dados da API do projeto.',
         alt: 'Interface real do AsiaLogService exibindo filtros e logs processados por integração',
       },
+      fraud: {
+        toolbar: 'Antifraude Pix / painel no Grafana',
+        caption: 'Captura real: o painel com os Pix de dezembro decididos pela API, dia a dia.',
+        alt: 'Painel do Grafana do Antifraude Pix com os Pix decididos por segundo, a parte segurada e bloqueada, o tempo da decisão, o dinheiro segurado e a resposta do cliente',
+      },
       scheduling: {
         toolbar: 'Porto Agenda / operação',
         eyebrow: 'Agenda operacional',
@@ -486,7 +531,7 @@ const en: Content = {
     role: 'Full Stack Developer',
     location: 'São Vicente, Brazil',
     about:
-      'I hold a degree in Internet Systems and work professionally in IT infrastructure and support. On the development side, I build applications with TypeScript, React, Node.js, C#/.NET and relational databases.',
+      'I hold a degree in Internet Systems and work professionally in IT infrastructure and support. On the development side, I build applications with TypeScript, React, Node.js, C#/.NET and relational databases, and machine learning models in Python.',
     aboutComplement:
       'I have worked in administrative routines and now work in infrastructure. That mix helps me see the product beyond the code: I think about the environment, security, maintenance and the daily routine of whoever uses the system.',
     goal:
@@ -519,10 +564,10 @@ const en: Content = {
   },
 
   stats: [
-    { value: '120', label: 'automated tests' },
-    { value: '4', label: 'case studies' },
+    { value: '831', label: 'automated tests' },
+    { value: '6', label: 'case studies' },
     { value: '4', label: 'technical certifications' },
-    { value: '3', label: 'CI/CD pipelines' },
+    { value: '7', label: 'CI/CD pipelines' },
   ],
 
   about: {
@@ -535,7 +580,7 @@ const en: Content = {
     profileLabel: 'Profile at a glance',
     profileBadge: 'Full Stack',
     facts: [
-      { term: 'Education', value: 'Internet Systems (BSc)' },
+      { term: 'Education', value: 'Internet Systems (technologist degree)' },
       { term: 'Current role', value: 'IT infrastructure and support' },
       { term: 'Location', value: 'São Vicente, Brazil' },
       { term: 'Language', value: 'Fluent English' },
@@ -560,7 +605,7 @@ const en: Content = {
           'APIs and services with well-defined business rules, validation and security.',
         application:
           'REST APIs, JWT authentication, role-based access control, background jobs and integrations.',
-        items: ['C#', '.NET 8 and 10', 'ASP.NET Core', 'Node.js', 'REST APIs'],
+        items: ['C#', '.NET 8 and 10', 'ASP.NET Core', 'Node.js', 'Python', 'FastAPI', 'REST APIs'],
         type: 'backend',
       },
       {
@@ -568,13 +613,16 @@ const en: Content = {
         description:
           'Relational persistence and the tooling that takes code to production.',
         application:
-          'Modelling, SQL queries, containers, continuous integration, automated tests and observability.',
+          'Modelling, SQL queries, machine learning models, containers, continuous integration, automated tests and observability.',
         items: [
           'PostgreSQL',
           'SQL Server',
           'Entity Framework Core',
+          'LightGBM',
+          'MLflow',
           'Docker',
           'GitHub Actions',
+          'OpenTelemetry',
           'Prometheus',
         ],
         type: 'data',
@@ -586,7 +634,7 @@ const en: Content = {
     eyebrow: 'Selected work',
     title: 'Code applied to real operations',
     description:
-      'Five case studies with the problem, the technical decisions and what shipped. None of them is a tutorial clone.',
+      'Six case studies with the problem, the technical decisions and what shipped. None of them is a tutorial clone.',
     items: [
       {
         id: 'ships',
@@ -606,7 +654,7 @@ const en: Content = {
           'CodeQL, Dependabot and k6 load tests in the pipeline',
         ],
         metrics: [
-          { value: '120', label: 'automated tests' },
+          { value: '143', label: 'automated tests' },
           { value: '3', label: 'CI pipelines' },
           { value: '4', label: 'access roles' },
         ],
@@ -615,6 +663,34 @@ const en: Content = {
         demo: demos.ships,
         featured: true,
         preview: 'ships',
+      },
+      {
+        id: 'fraud',
+        title: 'Pix Fraud Detection',
+        category: 'Machine learning and real time',
+        context: 'Personal project · all eight parts shipped',
+        description:
+          "Fraud detection for Pix, Brazil's instant payments, on the payer's bank side: every Pix is approved, held for the customer to confirm, or blocked before it leaves, with the reason in plain Portuguese.",
+        challenge:
+          'There is no public Pix dataset, scams are under 0.1% of transactions, and the label arrives days later, when the victim disputes the payment. The model has to decide without peeking at the future, by the cost of each mistake, without erring more with older customers, and notice when a scam changes tactics.',
+        solution:
+          'I wrote a simulator with the scams that happen in Brazil and 33 features computed only from each Pix’s past. A calibrated LightGBM decides by cost, tracked in MLflow; a FastAPI service decides in real time with the very same features as training, proven Pix by Pix. The monitor catches, through the delayed label, the new scam that data drift misses, and the service ships in a Docker image, observed with OpenTelemetry and no personal data.',
+        highlights: [
+          'Average precision of 0.93, against 0.42 for today’s rules, validated month by month',
+          'Deciding by cost: R$ 101k, against R$ 1.76M approving everything',
+          'A decision in 0.15 ms and an API round trip in 1.2 ms, at the median',
+          'Retraining that only swaps the model when the new one wins on the same Pix',
+        ],
+        metrics: [
+          { value: '456', label: 'automated tests' },
+          { value: '0.93', label: 'average precision' },
+          { value: '25', label: 'recorded decisions' },
+        ],
+        technologies: stacks.fraud,
+        repository: repositories.fraud,
+        demo: demos.fraud,
+        featured: true,
+        preview: 'fraud',
       },
       {
         id: 'asiaLog',
@@ -856,6 +932,11 @@ const en: Content = {
         toolbar: 'AsiaLogService / running interface',
         caption: 'Actual screenshot: log query served by the project API.',
         alt: 'Live AsiaLogService interface showing filters and logs processed per integration',
+      },
+      fraud: {
+        toolbar: 'Pix Fraud Detection / Grafana dashboard',
+        caption: 'Actual screenshot: the dashboard with December’s Pix decided by the API, day by day.',
+        alt: 'Grafana dashboard of the Pix fraud service showing Pix decided per second, the share held and blocked, decision time, money held and customer responses',
       },
       scheduling: {
         toolbar: 'Porto Agenda / operations',

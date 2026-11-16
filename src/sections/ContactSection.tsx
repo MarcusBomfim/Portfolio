@@ -35,8 +35,8 @@ export function ContactSection() {
               LinkedIn
             </a>
             <a
-              href={curriculum.url}
-              download={curriculum.downloadName}
+              href={curriculum.url[language]}
+              download={curriculum.downloadName[language]}
               type="application/pdf"
               title={ui.curriculumTitle(curriculum.updatedAt[language])}
             >

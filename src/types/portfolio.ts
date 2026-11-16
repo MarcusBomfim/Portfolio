@@ -32,7 +32,7 @@ export interface Project {
   repository?: string
   demo?: string
   featured?: boolean
-  preview: 'ships' | 'observability' | 'scheduling' | 'inventory' | 'works'
+  preview: 'ships' | 'fraud' | 'observability' | 'scheduling' | 'inventory' | 'works'
 }
 
 export interface Experience {
@@ -145,8 +145,9 @@ export interface UiStrings {
 }
 
 /**
- * Textos das prévias exibidas ao lado de cada projeto. Só o AsiaLogService é
- * captura de tela; as demais são maquetes, e a legenda diz isso na cara.
+ * Textos das prévias exibidas ao lado de cada projeto. O AsiaLogService e o
+ * Antifraude Pix são capturas de tela; as demais são maquetes, e a legenda diz
+ * isso na cara.
  */
 export interface PreviewStrings {
   illustration: string
@@ -158,11 +159,8 @@ export interface PreviewStrings {
     waiting: string
     planned: string
   }
-  asiaLog: {
-    toolbar: string
-    caption: string
-    alt: string
-  }
+  asiaLog: RealPreviewStrings
+  fraud: RealPreviewStrings
   scheduling: {
     toolbar: string
     eyebrow: string
@@ -194,6 +192,12 @@ export interface PreviewStrings {
     axisStart: string
     axisEnd: string
   }
+}
+
+export interface RealPreviewStrings {
+  toolbar: string
+  caption: string
+  alt: string
 }
 
 export interface Content {

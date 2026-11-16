@@ -1,6 +1,6 @@
 # Portfólio — Marcus Bomfim
 
-Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack. O site apresenta quatro estudos de caso com o problema, as decisões técnicas e o que foi entregue em cada projeto — nenhum deles é clone de tutorial.
+Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack. O site apresenta seis estudos de caso com o problema, as decisões técnicas e o que foi entregue em cada projeto — nenhum deles é clone de tutorial.
 
 **Acesse o projeto:** [marcus-bomfim-portfolio.vercel.app](https://marcus-bomfim-portfolio.vercel.app/)
 
@@ -9,7 +9,7 @@ Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack. O site apres
 ## Conteúdo
 
 - Apresentação direta do que construo, com prova numérica logo abaixo
-- Quatro estudos de caso com problema, desafio, decisões técnicas e resultado
+- Seis estudos de caso com problema, desafio, decisões técnicas e resultado
 - Métricas verificáveis nos projetos: testes automatizados, pipelines de CI, perfis de acesso
 - Competências de front-end, back-end, dados e entrega
 - Certificados de C# com Microsoft, AWS e Cisco, com documentos e validações disponíveis
@@ -109,7 +109,7 @@ Os arquivos de produção são gerados na pasta `dist`.
 
 ## Atualizar o currículo
 
-Substitua `public/curriculo-marcus-bomfim.pdf`. O nome do arquivo baixado e a data exibida na dica do botão ficam em `curriculum`, no topo de `src/data/portfolio.ts`.
+Cada idioma baixa o seu: substitua `public/curriculo-marcus-bomfim.pdf` (português) ou `public/resume-marcus-bomfim-en.pdf` (inglês). O nome do arquivo baixado e a data exibida na dica do botão ficam em `curriculum`, no topo de `src/data/portfolio.ts`, um para cada idioma.
 
 ## Adicionar a demonstração de um projeto
 

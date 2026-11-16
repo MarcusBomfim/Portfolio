@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa6'
 import { useContent } from '../../i18n/useContent'
-import type { PreviewStrings, Project } from '../../types/portfolio'
+import type { PreviewStrings, Project, RealPreviewStrings } from '../../types/portfolio'
 
 interface ProjectCardProps {
   project: Project
@@ -42,6 +42,36 @@ function IllustrationNote({ label }: { label: string }) {
       <PencilRuler aria-hidden="true" />
       {label}
     </figcaption>
+  )
+}
+
+interface RealPreviewProps {
+  labels: RealPreviewStrings
+  src: string
+  width: number
+  height: number
+}
+
+/** Captura de tela de verdade, com a legenda que diz isso. */
+function RealPreview({ labels, src, width, height }: RealPreviewProps) {
+  return (
+    <figure className="project-preview project-preview-real">
+      <PreviewToolbar title={labels.toolbar} />
+      <div className="real-interface-frame">
+        <img
+          src={src}
+          alt={labels.alt}
+          width={width}
+          height={height}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <figcaption className="preview-note is-real">
+        <CheckCircle2 aria-hidden="true" />
+        {labels.caption}
+      </figcaption>
+    </figure>
   )
 }
 
@@ -102,26 +132,24 @@ function ProjectPreview({ project, labels }: ProjectPreviewProps) {
   }
 
   if (project.preview === 'observability') {
-    const { asiaLog } = labels
-
     return (
-      <figure className="project-preview project-preview-real">
-        <PreviewToolbar title={asiaLog.toolbar} />
-        <div className="real-interface-frame">
-          <img
-            src="/projects/asia-log-service-interface.jpg?v=2"
-            alt={asiaLog.alt}
-            width="1265"
-            height="712"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <figcaption className="preview-note is-real">
-          <CheckCircle2 aria-hidden="true" />
-          {asiaLog.caption}
-        </figcaption>
-      </figure>
+      <RealPreview
+        labels={labels.asiaLog}
+        src="/projects/asia-log-service-interface.jpg?v=2"
+        width={1265}
+        height={712}
+      />
+    )
+  }
+
+  if (project.preview === 'fraud') {
+    return (
+      <RealPreview
+        labels={labels.fraud}
+        src="/projects/antifraude-pix-painel.webp"
+        width={1200}
+        height={885}
+      />
     )
   }
 

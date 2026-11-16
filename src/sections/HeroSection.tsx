@@ -30,8 +30,8 @@ export function HeroSection() {
             </a>
             <a
               className="button button-secondary"
-              href={curriculum.url}
-              download={curriculum.downloadName}
+              href={curriculum.url[language]}
+              download={curriculum.downloadName[language]}
               type="application/pdf"
               title={ui.curriculumTitle(curriculum.updatedAt[language])}
             >
