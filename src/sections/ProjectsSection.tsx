@@ -1,4 +1,5 @@
 import { ProjectCard } from '../components/ui/ProjectCard'
+import { ProjectCarousel } from '../components/ui/ProjectCarousel'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { useContent } from '../i18n/useContent'
 
@@ -18,6 +19,12 @@ export function ProjectsSection() {
           <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
+
+      <ProjectCarousel
+        title={projects.more.title}
+        description={projects.more.description}
+        items={projects.more.items}
+      />
     </section>
   )
 }

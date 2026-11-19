@@ -28,12 +28,9 @@ export const curriculum = {
 }
 
 const repositories = {
-  ships: 'https://github.com/MarcusBomfim/gestao-escalas-navios',
+  crm: 'https://github.com/MarcusBomfim/crm-obras',
   fraud: 'https://github.com/MarcusBomfim/antifraude-pix',
-  asiaLog: 'https://github.com/MarcusBomfim/AsiaLogService',
-  scheduling: 'https://github.com/MarcusBomfim/agendamento-caminhoes',
-  inventory: 'https://github.com/MarcusBomfim/Controle-Estoque',
-  works: 'https://github.com/MarcusBomfim/gestao-obras',
+  dockers: 'https://github.com/MarcusBomfim/escala-avulsos',
 }
 
 /**
@@ -43,12 +40,44 @@ const repositories = {
 const demos: Partial<Record<keyof typeof repositories, string>> = {}
 
 const stacks = {
-  ships: ['C# 14', '.NET 10', 'React', 'TypeScript', 'PostgreSQL', 'Docker'],
+  crm: ['C# 14', '.NET 10', 'PostgreSQL', 'React', 'TypeScript', 'OpenTelemetry', 'Docker'],
   fraud: ['Python', 'LightGBM', 'Polars', 'MLflow', 'FastAPI', 'Docker', 'OpenTelemetry'],
-  asiaLog: ['C#', '.NET 8', 'SQL Server', 'Docker', 'Prometheus', 'Grafana'],
-  scheduling: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
-  inventory: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'CSS'],
-  works: ['PHP 8.1', 'SQLite', 'SQL', 'GitHub Actions'],
+  dockers: ['C# 14', '.NET 10', 'PostgreSQL', 'React', 'PWA', 'OpenTelemetry', 'Docker'],
+}
+
+/** As capturas de tela de verdade de cada estudo de caso, tiradas do repositório de cada um. */
+const screenshots = {
+  crm: { type: 'screenshot', src: '/projects/crm-obras-funil.webp', width: 1200, height: 817, frame: 'desktop' },
+  fraud: { type: 'screenshot', src: '/projects/antifraude-pix-painel.webp', width: 1200, height: 885, frame: 'desktop' },
+  dockers: { type: 'screenshot', src: '/projects/escala-avulsos-minha-escala.webp', width: 412, height: 1000, frame: 'phone' },
+} as const
+
+/**
+ * Os projetos do carrossel de fotos: o repositório e a foto de cada um, todas
+ * do mesmo tamanho, pequenas. As fotos são das telas de verdade, com os dados
+ * de demonstração de cada projeto.
+ */
+const others = {
+  planning: {
+    repository: 'https://github.com/MarcusBomfim/planejamento-obras',
+    photo: { src: '/projects/outros/planejamento-obras.webp', width: 640, height: 400 },
+  },
+  ships: {
+    repository: 'https://github.com/MarcusBomfim/gestao-escalas-navios',
+    photo: { src: '/projects/outros/gestao-escalas-navios.webp', width: 640, height: 400 },
+  },
+  concrete: {
+    repository: 'https://github.com/MarcusBomfim/controle-concreto',
+    photo: { src: '/projects/outros/controle-concreto.webp', width: 640, height: 400 },
+  },
+  works: {
+    repository: 'https://github.com/MarcusBomfim/gestao-obras',
+    photo: { src: '/projects/outros/gestao-obras.webp', width: 640, height: 400 },
+  },
+  asiaLog: {
+    repository: 'https://github.com/MarcusBomfim/AsiaLogService',
+    photo: { src: '/projects/outros/asialogservice.webp', width: 640, height: 400 },
+  },
 }
 
 const certificateAssets = {
@@ -116,10 +145,10 @@ const pt: Content = {
   },
 
   stats: [
-    { value: '831', label: 'testes automatizados' },
-    { value: '6', label: 'estudos de caso' },
+    { value: '3.300+', label: 'testes automatizados' },
+    { value: '17', label: 'projetos publicados' },
+    { value: '19', label: 'pipelines de CI/CD' },
     { value: '4', label: 'certificações técnicas' },
-    { value: '7', label: 'pipelines de CI/CD' },
   ],
 
   about: {
@@ -157,7 +186,7 @@ const pt: Content = {
           'APIs e serviços com regras de negócio bem definidas, validação e segurança.',
         application:
           'APIs REST, autenticação JWT, controle de acesso por papel, tarefas em segundo plano e integrações.',
-        items: ['C#', '.NET 8 e 10', 'ASP.NET Core', 'Node.js', 'Python', 'FastAPI', 'APIs REST'],
+        items: ['C#', '.NET 8 e 10', 'ASP.NET Core', 'Node.js', 'Python', 'FastAPI', 'PHP', 'Laravel', 'APIs REST'],
         type: 'backend',
       },
       {
@@ -186,35 +215,39 @@ const pt: Content = {
     eyebrow: 'Projetos selecionados',
     title: 'Código aplicado a cenários reais',
     description:
-      'Seis estudos de caso com o problema, as decisões técnicas e o que foi entregue. Nenhum é clone de tutorial.',
+      'Os três projetos mais fortes, com o problema, as decisões técnicas e o que foi entregue. Nenhum é clone de tutorial.',
     items: [
       {
-        id: 'ships',
-        title: 'Gestão de Escalas de Navios',
-        category: 'Full Stack e operações portuárias',
-        context: 'Projeto autoral · versão 1.0.0 concluída',
+        id: 'crm',
+        title: 'CRM de Obras',
+        category: 'Full Stack e vendas B2B',
+        context: 'Projeto autoral · oito partes concluídas',
         description:
-          'Plataforma para planejar, acompanhar e auditar escalas e operações de navios em terminais portuários.',
+          'O relacionamento de uma construtora com os clientes antes da obra existir: o lead, o funil de vendas, a agenda, a proposta em versões e a previsão de receita — e a proposta aceita, que vira obra no Planejamento de Obras, por eventos.',
         challenge:
-          'Representar o ciclo completo de uma escala — navio, berço, janela de atracação, marcos operacionais e progresso de carga — mantendo isolamento entre organizações e um histórico auditável de cada mudança.',
+          'Venda de construtora leva meses e passa por muita gente. Sem um lugar para essa história, ela se espalha em e-mails e na memória do vendedor: o mesmo cliente vira vários cadastros, o desconto sai de quem não podia dar, e no fim do mês ninguém sabe quanto vai entrar.',
         solution:
-          'Construí uma arquitetura em camadas com C# 14 e .NET 10, front-end React, PostgreSQL e Docker. Identidade com JWT e refresh token rotativo, autorização por papéis, torre de controle em tempo real, auditoria, relatórios CSV e contrato OpenAPI 3.1.',
+          'Modelei o domínio em C# 14 e .NET 10 — o CNPJ alfanumérico de 2026, a régua BANT, o funil configurável e a proposta em versões com alçada de desconto por cargo — sobre o PostgreSQL, com cada construtora isolada por segurança em nível de linha. A API REST tem JWT, ETag e chave de idempotência; o front-end React mostra o funil em kanban; e a venda ganha vira obra no outro sistema por uma caixa de saída, com o rastro do OpenTelemetry de ponta a ponta.',
         highlights: [
-          'Torre de controle com atualização em tempo real via SignalR',
-          'Concorrência otimista nas transições de escala e berço',
-          'Acesso público somente leitura, sem senha, para demonstração',
-          'CodeQL, Dependabot e testes de carga com k6 na esteira',
+          'Cada construtora vê só o que é dela, garantido no próprio banco',
+          'Proposta em versões, ao centavo, com desconto por alçada de cargo',
+          'Previsão de receita ponderada pela etapa do funil',
+          'Integração por eventos: a venda ganha vira obra no outro sistema',
         ],
         metrics: [
-          { value: '143', label: 'testes automatizados' },
-          { value: '3', label: 'pipelines de CI' },
-          { value: '4', label: 'perfis de acesso' },
+          { value: '817', label: 'testes automatizados' },
+          { value: '3', label: 'pipelines de CI/CD' },
+          { value: '20', label: 'decisões registradas' },
         ],
-        technologies: stacks.ships,
-        repository: repositories.ships,
-        demo: demos.ships,
-        featured: true,
-        preview: 'ships',
+        technologies: stacks.crm,
+        repository: repositories.crm,
+        demo: demos.crm,
+        preview: {
+          ...screenshots.crm,
+          toolbar: 'CRM de Obras / funil de vendas',
+          caption: 'Captura real: o funil de vendas em kanban, com o valor ponderado de cada etapa.',
+          alt: 'Funil de vendas do CRM de Obras em kanban, com as vendas de cada etapa e os valores em aberto e ponderado',
+        },
       },
       {
         id: 'fraud',
@@ -241,110 +274,107 @@ const pt: Content = {
         technologies: stacks.fraud,
         repository: repositories.fraud,
         demo: demos.fraud,
-        featured: true,
-        preview: 'fraud',
+        preview: {
+          ...screenshots.fraud,
+          toolbar: 'Antifraude Pix / painel no Grafana',
+          caption: 'Captura real: o painel com os Pix de dezembro decididos pela API, dia a dia.',
+          alt: 'Painel do Grafana do Antifraude Pix com os Pix decididos por segundo, a parte segurada e bloqueada, o tempo da decisão, o dinheiro segurado e a resposta do cliente',
+        },
       },
       {
-        id: 'asiaLog',
-        title: 'AsiaLogService',
-        category: 'Back-end e observabilidade',
-        context: 'Solicitado pela Asia Shipping',
+        id: 'dockers',
+        title: 'Escala dos Avulsos',
+        category: 'Full Stack, acessibilidade e porto',
+        context: 'Projeto autoral · oito partes concluídas',
         description:
-          'Serviço para centralizar a consulta de logs, identificar eventos críticos e apoiar o acompanhamento das integrações da empresa.',
+          'A escala do trabalhador portuário avulso de Santos refeita para o celular e para quem já não enxerga tão bem: o estivador lê, numa frase, onde trabalha amanhã — ou por que ficou de fora, e até quando.',
         challenge:
-          'Facilitar a identificação de falhas em diferentes integrações e reduzir o acompanhamento manual de ocorrências críticas.',
+          'Mais de seis mil avulsos disputam as vagas pelo celular num sistema feito para computador: letra pequena, siglas e a escala numa tabela cheia de códigos. Muitos têm décadas de cais e aprenderam a profissão na escala presencial. Por trás da tela, a escala tem de respeitar a habilitação, o rodízio e o descanso de onze horas.',
         solution:
-          'Desenvolvi uma API REST em .NET 8 com filtros, persistência em SQL Server via Entity Framework Core, alertas por e-mail, processamento em segundo plano e monitoramento da própria aplicação.',
+          'Escrevi as regras da escala em C# 14 e .NET 10 — habilitação, rodízio pela matrícula, descanso entre jornadas, frequência e extrato — num PostgreSQL que não deixa ninguém em duas jornadas. O aplicativo é um PWA em React, com letra que cresce num toque, contraste alto, a escala lida em voz alta, e que abre sem sinal no cais; a escala nova aparece sozinha na tela aberta.',
         highlights: [
-          'Interface integrada à API e ao SQL Server',
-          'Alertas automáticos para eventos críticos',
-          'Retry para falhas no envio de notificações',
-          'Métricas e painéis com Prometheus e Grafana',
-        ],
-        metrics: [],
-        technologies: stacks.asiaLog,
-        repository: repositories.asiaLog,
-        demo: demos.asiaLog,
-        featured: true,
-        preview: 'observability',
-      },
-      {
-        id: 'scheduling',
-        title: 'Porto Agenda',
-        category: 'Full Stack e logística de terminais',
-        context: 'Projeto autoral',
-        description:
-          'Plataforma para organizar agendamentos de caminhões, cadastros operacionais e acessos de usuários em um único fluxo.',
-        challenge:
-          'Representar regras reais de agenda, capacidade de terminais, disponibilidade de veículos e segurança de acesso sem comprometer a experiência do operador.',
-        solution:
-          'Construí uma aplicação React integrada a uma API Node.js modular, com PostgreSQL, autenticação JWT, hash bcrypt, limitação de tentativas, recuperação de senha e execução completa com Docker Compose.',
-        highlights: [
-          'Regras de conflito, capacidade e transição de status',
-          'Entrada demonstrativa por visitante, somente leitura',
-          'Recuperação de senha com token de uso único',
-          'Testes automatizados no front-end e na API',
+          'Todo "não" vem com o motivo e com o prazo',
+          'Letra grande num toque, contraste alto e a escala lida em voz alta',
+          'Tempo real: a escala que sai aparece sozinha na tela aberta',
+          'Testes de acessibilidade com o axe, no navegador de celular',
         ],
         metrics: [
-          { value: '5', label: 'domínios integrados' },
-          { value: '18', label: 'agendamentos na base demo' },
-          { value: '2', label: 'modos de persistência' },
+          { value: '703', label: 'testes automatizados' },
+          { value: '3', label: 'pipelines de CI/CD' },
+          { value: '24', label: 'decisões registradas' },
         ],
-        technologies: stacks.scheduling,
-        repository: repositories.scheduling,
-        demo: demos.scheduling,
-        preview: 'scheduling',
-      },
-      {
-        id: 'inventory',
-        title: 'Nexo — Controle de Estoque',
-        category: 'Full Stack e gestão',
-        context: 'Projeto autoral',
-        description:
-          'Sistema para administrar produtos, entradas, saídas, níveis mínimos e histórico de movimentações.',
-        challenge:
-          'Manter o saldo consistente durante movimentações simultâneas e permitir que o projeto funcionasse com ou sem um servidor configurado.',
-        solution:
-          'Implementei modos local e PostgreSQL, uma API REST com transações e bloqueio de registros, dashboard, filtros, alertas de reposição e exportação do inventário em CSV.',
-        highlights: [
-          'Transações com controle de concorrência',
-          'Modo local e persistência PostgreSQL',
-          'Alertas de estoque mínimo e exportação CSV',
-        ],
-        metrics: [],
-        technologies: stacks.inventory,
-        repository: repositories.inventory,
-        demo: demos.inventory,
-        preview: 'inventory',
-      },
-      {
-        id: 'works',
-        title: 'Gestão de Obras',
-        category: 'Back-end e construção civil',
-        context: 'Projeto autoral · sem framework, de propósito',
-        description:
-          'Sistema de diário de obra, avanço físico e medição, escrito em PHP puro para deixar a arquitetura à vista em vez de escondê-la atrás de um framework.',
-        challenge:
-          'O diário de obra é documento contratual e, em obra pública, exigência legal — mas na prática vira caderno no barracão. Sem registro diário, a medição vira discussão com o cliente, o atraso só aparece quando já não dá para reagir e a obra não consegue comprovar os dias parados por chuva.',
-        solution:
-          'Modelei o domínio em 27 classes sem dependência de infraestrutura e derivei o avanço e a medição dos diários, em vez de pedir os três números separados. Roteador, sessão com token anti-CSRF, repositórios com PDO e migrations em SQL foram escritos à mão, com 207 testes e integração contínua em duas versões do PHP.',
-        highlights: [
-          'Medição refeita a partir dos diários, rastreável até o dia de origem',
-          'Curva S de avanço em SVG gerado no servidor, sem biblioteca de gráfico',
-          'Limite de tentativas de login por conta e por IP, com registro de acesso',
-          'Regras críticas repetidas no banco em CHECK e UNIQUE',
-        ],
-        metrics: [
-          { value: '207', label: 'testes automatizados' },
-          { value: '27', label: 'classes de domínio' },
-          { value: '0', label: 'dependências de terceiros' },
-        ],
-        technologies: stacks.works,
-        repository: repositories.works,
-        demo: demos.works,
-        preview: 'works',
+        technologies: stacks.dockers,
+        repository: repositories.dockers,
+        demo: demos.dockers,
+        preview: {
+          ...screenshots.dockers,
+          toolbar: 'Escala dos Avulsos / minha escala',
+          caption: 'Captura real: a escala de hoje no celular, numa frase.',
+          alt: 'Tela Minha escala no celular: hoje, à tarde, das 13h às 19h, sinaleiro no terno 1 do navio Atlântico Sul, no Terminal Cais Leste, berço 4',
+        },
       },
     ],
+    more: {
+      title: 'Outros projetos',
+      description: 'Mais cinco projetos, com a tela de cada um e o código no GitHub.',
+      items: [
+        {
+          id: 'planning',
+          title: 'Planejamento de Obras',
+          summary:
+            'Caminho crítico, orçamento com BDI e cronograma físico-financeiro, com a obra medida mês a mês por valor agregado. C# 14, .NET 10 e React.',
+          image: {
+            ...others.planning.photo,
+            alt: 'Painel das obras do Planejamento de Obras, com uma obra crítica, uma em dia e uma sem medição',
+          },
+          repository: others.planning.repository,
+        },
+        {
+          id: 'ships',
+          title: 'Gestão de Escalas de Navios',
+          summary:
+            'Escalas de navios nos terminais, do planejamento à operação, com a torre de controle em tempo real e uma entrada de demonstração sem senha. .NET 10 e React.',
+          image: {
+            ...others.ships.photo,
+            alt: 'Torre de controle da Gestão de Escalas de Navios, com os navios e os berços em operação',
+          },
+          repository: others.ships.repository,
+        },
+        {
+          id: 'concrete',
+          title: 'Controle Tecnológico de Concreto',
+          summary:
+            'Corpos de prova e o julgamento de cada lote pela NBR 12655, com o resultado amarrado ao caminhão e à peça concretada. Laravel, com 265 testes.',
+          image: {
+            ...others.concrete.photo,
+            alt: 'Lote de concreto C30 julgado não conforme: fck de projeto de 30 MPa e fck estimado de 24,7 MPa',
+          },
+          repository: others.concrete.repository,
+        },
+        {
+          id: 'works',
+          title: 'Gestão de Obras',
+          summary:
+            'Diário de obra, avanço físico e medição em PHP puro, sem framework, com a curva de avanço desenhada no servidor. 207 testes.',
+          image: {
+            ...others.works.photo,
+            alt: 'Obra em andamento com 27,25% de avanço físico e a curva de avanço contra o ritmo esperado',
+          },
+          repository: others.works.repository,
+        },
+        {
+          id: 'asiaLog',
+          title: 'AsiaLogService',
+          summary:
+            'API pedida pela Asia Shipping para centralizar os logs das integrações e avisar dos eventos críticos, com painéis no Grafana. .NET 8.',
+          image: {
+            ...others.asiaLog.photo,
+            alt: 'Interface do AsiaLogService com os filtros e os logs processados por integração',
+          },
+          repository: others.asiaLog.repository,
+        },
+      ],
+    },
   },
 
   certificates: {
@@ -470,57 +500,14 @@ const pt: Content = {
     practicalUse: 'Aplicação prática',
     curriculumTitle: (updatedAt) => `Currículo em PDF — atualizado em ${updatedAt}`,
     statsLabel: 'Números do portfólio',
-    previews: {
-      illustration: 'Ilustração da interface — não é captura de tela',
-      ships: {
-        toolbar: 'Escalas / torre de controle',
-        eyebrow: 'Janela de atracação',
-        title: 'Berços em operação',
-        berthed: 'Atracado',
-        waiting: 'Aguardando',
-        planned: 'Planejado',
-      },
-      asiaLog: {
-        toolbar: 'AsiaLogService / interface em funcionamento',
-        caption: 'Captura real: consulta de logs com dados da API do projeto.',
-        alt: 'Interface real do AsiaLogService exibindo filtros e logs processados por integração',
-      },
-      fraud: {
-        toolbar: 'Antifraude Pix / painel no Grafana',
-        caption: 'Captura real: o painel com os Pix de dezembro decididos pela API, dia a dia.',
-        alt: 'Painel do Grafana do Antifraude Pix com os Pix decididos por segundo, a parte segurada e bloqueada, o tempo da decisão, o dinheiro segurado e a resposta do cliente',
-      },
-      scheduling: {
-        toolbar: 'Porto Agenda / operação',
-        eyebrow: 'Agenda operacional',
-        title: 'Movimentações do dia',
-        scheduled: 'agendados',
-        confirmed: 'confirmados',
-        terminal: 'Terminal',
-        statuses: ['Confirmado', 'Em pátio', 'Pendente'],
-      },
-      inventory: {
-        toolbar: 'Nexo / inventário',
-        eyebrow: 'Controle de estoque',
-        title: 'Visão do inventário',
-        products: 'Produtos',
-        lowStock: 'Estoque baixo',
-        movements: 'Movimentações',
-        items: ['Notebook corporativo', 'Monitor 24 polegadas', 'Teclado USB'],
-        unit: 'un.',
-      },
-      works: {
-        toolbar: 'Gestão de Obras / avanço físico',
-        eyebrow: 'Curva de avanço',
-        title: 'Residencial Vista Serra',
-        executed: 'Executado',
-        expected: 'Ritmo esperado',
-        progress: 'Avanço',
-        measured: 'Medido',
-        diaries: 'Diários',
-        axisStart: 'set.',
-        axisEnd: 'dez.',
-      },
+    carousel: {
+      roleDescription: 'carrossel',
+      slideRoleDescription: 'projeto',
+      previous: 'Projeto anterior',
+      next: 'Próximo projeto',
+      position: (current, total) => `${current} de ${total}`,
+      goTo: (position, title) => `Ir para o projeto ${position}: ${title}`,
+      choose: 'Escolher o projeto',
     },
   },
 }
@@ -564,10 +551,10 @@ const en: Content = {
   },
 
   stats: [
-    { value: '831', label: 'automated tests' },
-    { value: '6', label: 'case studies' },
+    { value: '3,300+', label: 'automated tests' },
+    { value: '17', label: 'published projects' },
+    { value: '19', label: 'CI/CD pipelines' },
     { value: '4', label: 'technical certifications' },
-    { value: '7', label: 'CI/CD pipelines' },
   ],
 
   about: {
@@ -605,7 +592,7 @@ const en: Content = {
           'APIs and services with well-defined business rules, validation and security.',
         application:
           'REST APIs, JWT authentication, role-based access control, background jobs and integrations.',
-        items: ['C#', '.NET 8 and 10', 'ASP.NET Core', 'Node.js', 'Python', 'FastAPI', 'REST APIs'],
+        items: ['C#', '.NET 8 and 10', 'ASP.NET Core', 'Node.js', 'Python', 'FastAPI', 'PHP', 'Laravel', 'REST APIs'],
         type: 'backend',
       },
       {
@@ -634,35 +621,39 @@ const en: Content = {
     eyebrow: 'Selected work',
     title: 'Code applied to real operations',
     description:
-      'Six case studies with the problem, the technical decisions and what shipped. None of them is a tutorial clone.',
+      'The three strongest projects, with the problem, the technical decisions and what shipped. None of them is a tutorial clone.',
     items: [
       {
-        id: 'ships',
-        title: 'Ship Call Management',
-        category: 'Full Stack and port operations',
-        context: 'Personal project · version 1.0.0 shipped',
+        id: 'crm',
+        title: 'Construction CRM',
+        category: 'Full stack and B2B sales',
+        context: 'Personal project · all eight parts shipped',
         description:
-          'A platform to plan, track and audit ship calls and cargo operations across port terminals.',
+          'A construction company’s relationship with its clients before the building exists: the lead, the sales pipeline, the agenda, the versioned proposal and the revenue forecast — and the accepted proposal, which becomes a project in Construction Planning through events.',
         challenge:
-          'Represent the full lifecycle of a ship call — vessel, berth, mooring window, operational milestones and cargo progress — while keeping organisations isolated and every change auditable.',
+          'A construction sale takes months and goes through many people. Without one place for that story, it scatters across e-mails and the salesperson’s memory: the same client becomes several records, the discount comes from someone who could not grant it, and at month end nobody knows how much will come in.',
         solution:
-          'I built a layered architecture with C# 14 and .NET 10, a React front end, PostgreSQL and Docker. Identity with JWT and rotating refresh tokens, role-based authorisation, a real-time control tower, auditing, CSV reports and an OpenAPI 3.1 contract.',
+          'I modelled the domain in C# 14 and .NET 10 — the alphanumeric CNPJ of 2026, BANT qualification, a configurable pipeline and versioned proposals with discount approval by role — on PostgreSQL, with each company isolated by row-level security. The REST API has JWT, ETags and idempotency keys; the React front end shows the pipeline as a kanban; and a won deal becomes a project in the other system through an outbox, traced end to end with OpenTelemetry.',
         highlights: [
-          'Control tower with real-time updates over SignalR',
-          'Optimistic concurrency on call and berth transitions',
-          'Public read-only access, no password, for demos',
-          'CodeQL, Dependabot and k6 load tests in the pipeline',
+          'Each company sees only its own data, enforced by the database itself',
+          'Versioned proposals, to the cent, with discount approval by role',
+          'Revenue forecast weighted by pipeline stage',
+          'Event integration: a won deal becomes a project in the other system',
         ],
         metrics: [
-          { value: '143', label: 'automated tests' },
-          { value: '3', label: 'CI pipelines' },
-          { value: '4', label: 'access roles' },
+          { value: '817', label: 'automated tests' },
+          { value: '3', label: 'CI/CD pipelines' },
+          { value: '20', label: 'recorded decisions' },
         ],
-        technologies: stacks.ships,
-        repository: repositories.ships,
-        demo: demos.ships,
-        featured: true,
-        preview: 'ships',
+        technologies: stacks.crm,
+        repository: repositories.crm,
+        demo: demos.crm,
+        preview: {
+          ...screenshots.crm,
+          toolbar: 'Construction CRM / sales pipeline',
+          caption: 'Actual screenshot: the sales pipeline as a kanban, with the weighted value of each stage.',
+          alt: 'Construction CRM sales pipeline as a kanban, with the deals in each stage and the open and weighted totals',
+        },
       },
       {
         id: 'fraud',
@@ -689,110 +680,107 @@ const en: Content = {
         technologies: stacks.fraud,
         repository: repositories.fraud,
         demo: demos.fraud,
-        featured: true,
-        preview: 'fraud',
+        preview: {
+          ...screenshots.fraud,
+          toolbar: 'Pix Fraud Detection / Grafana dashboard',
+          caption: 'Actual screenshot: the dashboard with December’s Pix decided by the API, day by day.',
+          alt: 'Grafana dashboard of the Pix fraud service showing Pix decided per second, the share held and blocked, decision time, money held and customer responses',
+        },
       },
       {
-        id: 'asiaLog',
-        title: 'AsiaLogService',
-        category: 'Back end and observability',
-        context: 'Requested by Asia Shipping',
+        id: 'dockers',
+        title: 'Dock Workers’ Roster',
+        category: 'Full stack, accessibility and ports',
+        context: 'Personal project · all eight parts shipped',
         description:
-          'A service to centralise log queries, surface critical events and support the monitoring of company integrations.',
+          'The work roster of the Port of Santos’ casual dock workers, rebuilt for the phone and for eyes that no longer see so well: the worker reads, in one sentence, where they work tomorrow — or why they were left out, and until when.',
         challenge:
-          'Make failures across different integrations easy to spot and cut down the manual tracking of critical incidents.',
+          'More than six thousand casual dock workers compete for shifts on their phones through a system built for desktops: small print, acronyms and the roster in a table full of codes. Many have decades on the docks and learned the trade at the in-person roster. Behind the screen, the roster must respect qualifications, rotation and an eleven-hour rest.',
         solution:
-          'I developed a .NET 8 REST API with filtering, SQL Server persistence through Entity Framework Core, e-mail alerts, background processing and monitoring of the application itself.',
+          'I wrote the roster rules in C# 14 and .NET 10 — qualification, rotation by registration number, rest between shifts, attendance and statement — on a PostgreSQL database that never puts anyone in two shifts. The app is a React PWA with text that grows with one tap, high contrast and the roster read aloud, and it opens without signal on the quay; a new roster shows up by itself on the open screen.',
         highlights: [
-          'Interface wired to the API and SQL Server',
-          'Automatic alerts for critical events',
-          'Retry handling for failed notifications',
-          'Metrics and dashboards with Prometheus and Grafana',
-        ],
-        metrics: [],
-        technologies: stacks.asiaLog,
-        repository: repositories.asiaLog,
-        demo: demos.asiaLog,
-        featured: true,
-        preview: 'observability',
-      },
-      {
-        id: 'scheduling',
-        title: 'Porto Agenda',
-        category: 'Full Stack and terminal logistics',
-        context: 'Personal project',
-        description:
-          'A platform that brings truck scheduling, operational records and user access into a single flow.',
-        challenge:
-          'Model real scheduling rules, terminal capacity, vehicle availability and access security without slowing the operator down.',
-        solution:
-          'I built a React application on a modular Node.js API, with PostgreSQL, JWT authentication, bcrypt hashing, rate limiting, password recovery and a full Docker Compose setup.',
-        highlights: [
-          'Conflict, capacity and status transition rules',
-          'Read-only guest entry for demonstrations',
-          'Password recovery with single-use tokens',
-          'Automated tests on both the front end and the API',
+          'Every "no" comes with the reason and the date it ends',
+          'Large text with one tap, high contrast and the roster read aloud',
+          'Real time: a new roster shows up by itself on the open screen',
+          'Accessibility tests with axe, in a mobile browser',
         ],
         metrics: [
-          { value: '5', label: 'integrated domains' },
-          { value: '18', label: 'bookings in the demo data' },
-          { value: '2', label: 'persistence modes' },
+          { value: '703', label: 'automated tests' },
+          { value: '3', label: 'CI/CD pipelines' },
+          { value: '24', label: 'recorded decisions' },
         ],
-        technologies: stacks.scheduling,
-        repository: repositories.scheduling,
-        demo: demos.scheduling,
-        preview: 'scheduling',
-      },
-      {
-        id: 'inventory',
-        title: 'Nexo — Inventory Control',
-        category: 'Full Stack and management',
-        context: 'Personal project',
-        description:
-          'A system to manage products, inbound and outbound movements, minimum levels and movement history.',
-        challenge:
-          'Keep balances consistent during simultaneous movements and let the project run with or without a configured server.',
-        solution:
-          'I implemented local and PostgreSQL modes, a REST API with transactions and row locking, a dashboard, filters, restock alerts and CSV inventory export.',
-        highlights: [
-          'Transactions with concurrency control',
-          'Local mode and PostgreSQL persistence',
-          'Minimum stock alerts and CSV export',
-        ],
-        metrics: [],
-        technologies: stacks.inventory,
-        repository: repositories.inventory,
-        demo: demos.inventory,
-        preview: 'inventory',
-      },
-      {
-        id: 'works',
-        title: 'Construction Site Management',
-        category: 'Back-end and civil construction',
-        context: 'Personal project · framework-free on purpose',
-        description:
-          'Daily site log, physical progress and billing measurement, written in plain PHP to keep the architecture in plain sight instead of hiding it behind a framework.',
-        challenge:
-          'The daily site log is a contractual document and, on public works, a legal requirement — yet in practice it becomes a notebook in the site shed. Without a daily record, measurement turns into an argument with the client, delays surface too late to react, and the contractor cannot prove the days lost to rain.',
-        solution:
-          'I modelled the domain in 27 infrastructure-free classes and derived progress and measurement from the daily logs, instead of asking for the three numbers separately. Router, session with CSRF token, PDO repositories and SQL migrations were all hand-written, with 207 tests and continuous integration on two PHP versions.',
-        highlights: [
-          'Measurement recomputed from the logs, traceable back to the originating day',
-          'Server-rendered SVG S-curve, with no charting library',
-          'Login attempt limit per account and per IP, with an access log',
-          'Critical rules repeated in the database as CHECK and UNIQUE',
-        ],
-        metrics: [
-          { value: '207', label: 'automated tests' },
-          { value: '27', label: 'domain classes' },
-          { value: '0', label: 'third-party dependencies' },
-        ],
-        technologies: stacks.works,
-        repository: repositories.works,
-        demo: demos.works,
-        preview: 'works',
+        technologies: stacks.dockers,
+        repository: repositories.dockers,
+        demo: demos.dockers,
+        preview: {
+          ...screenshots.dockers,
+          toolbar: 'Dock Workers’ Roster / my roster',
+          caption: 'Actual screenshot: today’s shift on the phone, in one sentence.',
+          alt: 'My roster screen on a phone: today, in the afternoon from 1 pm to 7 pm, signaller in gang 1 on the ship Atlântico Sul, Cais Leste terminal, berth 4',
+        },
       },
     ],
+    more: {
+      title: 'More projects',
+      description: 'Five more projects, each with a screenshot and the code on GitHub.',
+      items: [
+        {
+          id: 'planning',
+          title: 'Construction Planning and Control',
+          summary:
+            'Critical path, a budget with BDI markup and a physical-financial schedule, with each project measured monthly by earned value. C# 14, .NET 10 and React.',
+          image: {
+            ...others.planning.photo,
+            alt: 'Construction Planning projects dashboard, with one critical project, one on track and one not yet measured',
+          },
+          repository: others.planning.repository,
+        },
+        {
+          id: 'ships',
+          title: 'Ship Call Management',
+          summary:
+            'Ship calls at port terminals, from planning to operation, with a real-time control tower and password-free demo access. .NET 10 and React.',
+          image: {
+            ...others.ships.photo,
+            alt: 'Ship Call Management control tower, with the ships and berths in operation',
+          },
+          repository: others.ships.repository,
+        },
+        {
+          id: 'concrete',
+          title: 'Concrete Quality Control',
+          summary:
+            'Test specimens and the acceptance of each batch under the NBR 12655 standard, with every result tied to the truck and the structural element. Laravel, with 265 tests.',
+          image: {
+            ...others.concrete.photo,
+            alt: 'C30 concrete batch judged non-conforming: 30 MPa design strength against an estimated 24.7 MPa',
+          },
+          repository: others.concrete.repository,
+        },
+        {
+          id: 'works',
+          title: 'Construction Site Management',
+          summary:
+            'Daily site log, physical progress and billing measurement in framework-free PHP, with the progress curve drawn on the server. 207 tests.',
+          image: {
+            ...others.works.photo,
+            alt: 'Project in progress at 27.25% physical progress, with the progress curve against the expected pace',
+          },
+          repository: others.works.repository,
+        },
+        {
+          id: 'asiaLog',
+          title: 'AsiaLogService',
+          summary:
+            'An API requested by Asia Shipping to centralise integration logs and flag critical events, with Grafana dashboards. .NET 8.',
+          image: {
+            ...others.asiaLog.photo,
+            alt: 'AsiaLogService interface with the filters and the logs processed per integration',
+          },
+          repository: others.asiaLog.repository,
+        },
+      ],
+    },
   },
 
   certificates: {
@@ -918,57 +906,14 @@ const en: Content = {
     practicalUse: 'In practice',
     curriculumTitle: (updatedAt) => `Résumé in PDF — updated ${updatedAt}`,
     statsLabel: 'Portfolio in numbers',
-    previews: {
-      illustration: 'Interface illustration — not a screenshot',
-      ships: {
-        toolbar: 'Ship calls / control tower',
-        eyebrow: 'Mooring window',
-        title: 'Berths in operation',
-        berthed: 'Berthed',
-        waiting: 'Waiting',
-        planned: 'Planned',
-      },
-      asiaLog: {
-        toolbar: 'AsiaLogService / running interface',
-        caption: 'Actual screenshot: log query served by the project API.',
-        alt: 'Live AsiaLogService interface showing filters and logs processed per integration',
-      },
-      fraud: {
-        toolbar: 'Pix Fraud Detection / Grafana dashboard',
-        caption: 'Actual screenshot: the dashboard with December’s Pix decided by the API, day by day.',
-        alt: 'Grafana dashboard of the Pix fraud service showing Pix decided per second, the share held and blocked, decision time, money held and customer responses',
-      },
-      scheduling: {
-        toolbar: 'Porto Agenda / operations',
-        eyebrow: 'Operational schedule',
-        title: 'Movements today',
-        scheduled: 'scheduled',
-        confirmed: 'confirmed',
-        terminal: 'Terminal',
-        statuses: ['Confirmed', 'In yard', 'Pending'],
-      },
-      inventory: {
-        toolbar: 'Nexo / inventory',
-        eyebrow: 'Stock control',
-        title: 'Inventory overview',
-        products: 'Products',
-        lowStock: 'Low stock',
-        movements: 'Movements',
-        items: ['Corporate laptop', '24-inch monitor', 'USB keyboard'],
-        unit: 'pcs',
-      },
-      works: {
-        toolbar: 'Construction management / physical progress',
-        eyebrow: 'Progress curve',
-        title: 'Vista Serra Residential',
-        executed: 'Executed',
-        expected: 'Expected pace',
-        progress: 'Progress',
-        measured: 'Measured',
-        diaries: 'Site logs',
-        axisStart: 'Sep',
-        axisEnd: 'Dec',
-      },
+    carousel: {
+      roleDescription: 'carousel',
+      slideRoleDescription: 'project',
+      previous: 'Previous project',
+      next: 'Next project',
+      position: (current, total) => `${current} of ${total}`,
+      goTo: (position, title) => `Go to project ${position}: ${title}`,
+      choose: 'Choose a project',
     },
   },
 }

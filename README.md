@@ -1,6 +1,6 @@
 # Portfólio — Marcus Bomfim
 
-Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack. O site apresenta seis estudos de caso com o problema, as decisões técnicas e o que foi entregue em cada projeto — nenhum deles é clone de tutorial.
+Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack. O site apresenta os três projetos mais fortes como estudos de caso, com o problema, as decisões técnicas e o que foi entregue em cada um — nenhum deles é clone de tutorial —, e mais cinco projetos num carrossel de fotos.
 
 **Acesse o projeto:** [marcus-bomfim-portfolio.vercel.app](https://marcus-bomfim-portfolio.vercel.app/)
 
@@ -9,7 +9,8 @@ Portfólio profissional de Marcus Bomfim, desenvolvedor Full Stack. O site apres
 ## Conteúdo
 
 - Apresentação direta do que construo, com prova numérica logo abaixo
-- Seis estudos de caso com problema, desafio, decisões técnicas e resultado
+- Três estudos de caso com problema, desafio, decisões técnicas, resultado e a captura de tela de verdade
+- Carrossel de fotos com mais cinco projetos, um por vez: a tela, uma descrição curta e o botão para o código
 - Métricas verificáveis nos projetos: testes automatizados, pipelines de CI, perfis de acesso
 - Competências de front-end, back-end, dados e entrega
 - Certificados de C# com Microsoft, AWS e Cisco, com documentos e validações disponíveis

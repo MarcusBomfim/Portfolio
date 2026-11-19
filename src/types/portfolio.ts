@@ -18,6 +18,21 @@ export interface SkillGroup {
   type: 'frontend' | 'backend' | 'data'
 }
 
+/**
+ * A prévia ao lado de cada estudo de caso: a captura de tela de verdade, de
+ * computador ou de celular.
+ */
+export interface ScreenshotPreview {
+  type: 'screenshot'
+  src: string
+  width: number
+  height: number
+  frame: 'desktop' | 'phone'
+  toolbar: string
+  caption: string
+  alt: string
+}
+
 export interface Project {
   id: string
   title: string
@@ -31,8 +46,21 @@ export interface Project {
   technologies: string[]
   repository?: string
   demo?: string
-  featured?: boolean
-  preview: 'ships' | 'fraud' | 'observability' | 'scheduling' | 'inventory' | 'works'
+  preview: ScreenshotPreview
+}
+
+/** Um projeto do carrossel de fotos: a foto da tela, uma descrição curta e o código. */
+export interface OtherProject {
+  id: string
+  title: string
+  summary: string
+  image: {
+    src: string
+    width: number
+    height: number
+    alt: string
+  }
+  repository: string
 }
 
 export interface Experience {
@@ -93,6 +121,11 @@ export interface ProjectsContent {
   title: string
   description: string
   items: Project[]
+  more: {
+    title: string
+    description: string
+    items: OtherProject[]
+  }
 }
 
 export interface ExperienceContent {
@@ -141,63 +174,15 @@ export interface UiStrings {
   practicalUse: string
   curriculumTitle: (updatedAt: string) => string
   statsLabel: string
-  previews: PreviewStrings
-}
-
-/**
- * Textos das prévias exibidas ao lado de cada projeto. O AsiaLogService e o
- * Antifraude Pix são capturas de tela; as demais são maquetes, e a legenda diz
- * isso na cara.
- */
-export interface PreviewStrings {
-  illustration: string
-  ships: {
-    toolbar: string
-    eyebrow: string
-    title: string
-    berthed: string
-    waiting: string
-    planned: string
+  carousel: {
+    roleDescription: string
+    slideRoleDescription: string
+    previous: string
+    next: string
+    position: (current: number, total: number) => string
+    goTo: (position: number, title: string) => string
+    choose: string
   }
-  asiaLog: RealPreviewStrings
-  fraud: RealPreviewStrings
-  scheduling: {
-    toolbar: string
-    eyebrow: string
-    title: string
-    scheduled: string
-    confirmed: string
-    terminal: string
-    statuses: [string, string, string]
-  }
-  inventory: {
-    toolbar: string
-    eyebrow: string
-    title: string
-    products: string
-    lowStock: string
-    movements: string
-    items: [string, string, string]
-    unit: string
-  }
-  works: {
-    toolbar: string
-    eyebrow: string
-    title: string
-    executed: string
-    expected: string
-    progress: string
-    measured: string
-    diaries: string
-    axisStart: string
-    axisEnd: string
-  }
-}
-
-export interface RealPreviewStrings {
-  toolbar: string
-  caption: string
-  alt: string
 }
 
 export interface Content {
