@@ -29,7 +29,7 @@ export const curriculum = {
 
 const repositories = {
   crm: 'https://github.com/MarcusBomfim/crm-obras',
-  fraud: 'https://github.com/MarcusBomfim/antifraude-pix',
+  asiaLog: 'https://github.com/MarcusBomfim/AsiaLogService',
   dockers: 'https://github.com/MarcusBomfim/escala-avulsos',
 }
 
@@ -41,14 +41,14 @@ const demos: Partial<Record<keyof typeof repositories, string>> = {}
 
 const stacks = {
   crm: ['C# 14', '.NET 10', 'PostgreSQL', 'React', 'TypeScript', 'OpenTelemetry', 'Docker'],
-  fraud: ['Python', 'LightGBM', 'Polars', 'MLflow', 'FastAPI', 'Docker', 'OpenTelemetry'],
+  asiaLog: ['C#', '.NET 8', 'EF Core', 'SQL Server', 'Docker', 'Prometheus', 'Grafana'],
   dockers: ['C# 14', '.NET 10', 'PostgreSQL', 'React', 'PWA', 'OpenTelemetry', 'Docker'],
 }
 
 /** As capturas de tela de verdade de cada estudo de caso, tiradas do repositório de cada um. */
 const screenshots = {
   crm: { type: 'screenshot', src: '/projects/crm-obras-funil.webp', width: 1200, height: 817, frame: 'desktop' },
-  fraud: { type: 'screenshot', src: '/projects/antifraude-pix-painel.webp', width: 1200, height: 885, frame: 'desktop' },
+  asiaLog: { type: 'screenshot', src: '/projects/asialogservice-interface.webp', width: 1200, height: 675, frame: 'desktop' },
   dockers: { type: 'screenshot', src: '/projects/escala-avulsos-minha-escala.webp', width: 412, height: 1000, frame: 'phone' },
 } as const
 
@@ -74,9 +74,9 @@ const others = {
     repository: 'https://github.com/MarcusBomfim/gestao-obras',
     photo: { src: '/projects/outros/gestao-obras.webp', width: 640, height: 400 },
   },
-  asiaLog: {
-    repository: 'https://github.com/MarcusBomfim/AsiaLogService',
-    photo: { src: '/projects/outros/asialogservice.webp', width: 640, height: 400 },
+  fraud: {
+    repository: 'https://github.com/MarcusBomfim/antifraude-pix',
+    photo: { src: '/projects/outros/antifraude-pix.webp', width: 640, height: 400 },
   },
 }
 
@@ -250,35 +250,35 @@ const pt: Content = {
         },
       },
       {
-        id: 'fraud',
-        title: 'Antifraude Pix',
-        category: 'Machine learning e tempo real',
-        context: 'Projeto autoral · oito partes concluídas',
+        id: 'asiaLog',
+        title: 'AsiaLogService',
+        category: 'Back-end e observabilidade',
+        context: 'Solicitado pela Asia Shipping',
         description:
-          'Detecção de fraude em Pix do lado do banco de quem paga: cada Pix é aprovado, segurado para o cliente confirmar ou bloqueado antes de sair, com o porquê em português.',
+          'Serviço para centralizar a consulta de logs das integrações da empresa, identificar os eventos críticos e avisar quem precisa saber.',
         challenge:
-          'Não existe base pública de Pix, o golpe é menos de 0,1% das transações e o rótulo chega dias depois, quando a vítima contesta. O modelo tem de decidir sem olhar o futuro, pelo custo de cada erro, sem errar mais com os idosos, e perceber quando o golpe muda de tática.',
+          'As falhas acontecem em integrações diferentes, cada uma com o seu registro. Achar a que importa e avisar a pessoa certa dependia de acompanhamento manual, e uma ocorrência crítica podia passar despercebida.',
         solution:
-          'Escrevi um simulador com os golpes que acontecem no Brasil e 33 variáveis calculadas só com o passado de cada Pix. O LightGBM calibrado decide pelo custo, rastreado no MLflow; uma API em FastAPI decide em tempo real com as mesmas variáveis do treino, provadas Pix a Pix. O monitor percebe pelo rótulo atrasado o golpe novo que a deriva dos dados não vê, e o serviço vai para o ar numa imagem Docker, observado pelo OpenTelemetry sem nenhum dado pessoal.',
+          'Desenvolvi uma API REST em ASP.NET Core 8, com persistência em SQL Server pelo Entity Framework Core, consulta de logs por integração e período, e uma interface web com paginação e gráfico. Dois serviços em segundo plano cuidam das notificações por e-mail, com novas tentativas quando o envio falha, e a própria aplicação expõe a saúde e as métricas para o Prometheus e o Grafana, tudo no Docker Compose.',
         highlights: [
-          'Precisão média de 0,93, contra 0,42 das regras de hoje, validada mês a mês',
-          'Decidir pelo custo: R$ 101 mil, contra R$ 1,76 milhão aprovando tudo',
-          'Decisão em 0,15 ms e ida e volta pela API em 1,2 ms, na mediana',
-          'Retreino que só troca o modelo quando o novo ganha nos mesmos Pix',
+          'Consulta de logs por integração e período, com paginação e gráfico',
+          'Alertas por e-mail para os eventos críticos',
+          'Novas tentativas quando o envio de uma notificação falha',
+          'Métricas e painéis com Prometheus e Grafana',
         ],
         metrics: [
-          { value: '456', label: 'testes automatizados' },
-          { value: '0,93', label: 'precisão média' },
-          { value: '25', label: 'decisões registradas' },
+          { value: '7', label: 'rotas REST' },
+          { value: '2', label: 'serviços em segundo plano' },
+          { value: '4', label: 'tabelas no SQL Server' },
         ],
-        technologies: stacks.fraud,
-        repository: repositories.fraud,
-        demo: demos.fraud,
+        technologies: stacks.asiaLog,
+        repository: repositories.asiaLog,
+        demo: demos.asiaLog,
         preview: {
-          ...screenshots.fraud,
-          toolbar: 'Antifraude Pix / painel no Grafana',
-          caption: 'Captura real: o painel com os Pix de dezembro decididos pela API, dia a dia.',
-          alt: 'Painel do Grafana do Antifraude Pix com os Pix decididos por segundo, a parte segurada e bloqueada, o tempo da decisão, o dinheiro segurado e a resposta do cliente',
+          ...screenshots.asiaLog,
+          toolbar: 'AsiaLogService / interface em funcionamento',
+          caption: 'Captura real: a consulta de logs com os dados da API do projeto.',
+          alt: 'Interface do AsiaLogService com os filtros e os logs processados por integração',
         },
       },
       {
@@ -363,15 +363,15 @@ const pt: Content = {
           repository: others.works.repository,
         },
         {
-          id: 'asiaLog',
-          title: 'AsiaLogService',
+          id: 'fraud',
+          title: 'Antifraude Pix',
           summary:
-            'API pedida pela Asia Shipping para centralizar os logs das integrações e avisar dos eventos críticos, com painéis no Grafana. .NET 8.',
+            'Detecção de fraude em Pix com machine learning: o LightGBM decide cada Pix pelo custo do erro, numa API em tempo real com as mesmas variáveis do treino. Python, com 456 testes.',
           image: {
-            ...others.asiaLog.photo,
-            alt: 'Interface do AsiaLogService com os filtros e os logs processados por integração',
+            ...others.fraud.photo,
+            alt: 'Painel do Grafana do Antifraude Pix com os Pix decididos por segundo, a parte segurada e a bloqueada',
           },
-          repository: others.asiaLog.repository,
+          repository: others.fraud.repository,
         },
       ],
     },
@@ -656,35 +656,35 @@ const en: Content = {
         },
       },
       {
-        id: 'fraud',
-        title: 'Pix Fraud Detection',
-        category: 'Machine learning and real time',
-        context: 'Personal project · all eight parts shipped',
+        id: 'asiaLog',
+        title: 'AsiaLogService',
+        category: 'Back end and observability',
+        context: 'Requested by Asia Shipping',
         description:
-          "Fraud detection for Pix, Brazil's instant payments, on the payer's bank side: every Pix is approved, held for the customer to confirm, or blocked before it leaves, with the reason in plain Portuguese.",
+          'A service to centralise log queries from the company’s integrations, surface critical events and alert the people who need to know.',
         challenge:
-          'There is no public Pix dataset, scams are under 0.1% of transactions, and the label arrives days later, when the victim disputes the payment. The model has to decide without peeking at the future, by the cost of each mistake, without erring more with older customers, and notice when a scam changes tactics.',
+          'Failures happen across different integrations, each with its own log. Finding the one that matters and alerting the right person depended on manual tracking, and a critical incident could go unnoticed.',
         solution:
-          'I wrote a simulator with the scams that happen in Brazil and 33 features computed only from each Pix’s past. A calibrated LightGBM decides by cost, tracked in MLflow; a FastAPI service decides in real time with the very same features as training, proven Pix by Pix. The monitor catches, through the delayed label, the new scam that data drift misses, and the service ships in a Docker image, observed with OpenTelemetry and no personal data.',
+          'I developed a REST API in ASP.NET Core 8, with SQL Server persistence through Entity Framework Core, log queries by integration and period, and a web interface with pagination and a chart. Two background services handle the e-mail notifications, retrying when a delivery fails, and the application exposes its own health and metrics to Prometheus and Grafana, all in Docker Compose.',
         highlights: [
-          'Average precision of 0.93, against 0.42 for today’s rules, validated month by month',
-          'Deciding by cost: R$ 101k, against R$ 1.76M approving everything',
-          'A decision in 0.15 ms and an API round trip in 1.2 ms, at the median',
-          'Retraining that only swaps the model when the new one wins on the same Pix',
+          'Log queries by integration and period, with pagination and a chart',
+          'E-mail alerts for critical events',
+          'Retries when a notification fails to send',
+          'Metrics and dashboards with Prometheus and Grafana',
         ],
         metrics: [
-          { value: '456', label: 'automated tests' },
-          { value: '0.93', label: 'average precision' },
-          { value: '25', label: 'recorded decisions' },
+          { value: '7', label: 'REST routes' },
+          { value: '2', label: 'background services' },
+          { value: '4', label: 'SQL Server tables' },
         ],
-        technologies: stacks.fraud,
-        repository: repositories.fraud,
-        demo: demos.fraud,
+        technologies: stacks.asiaLog,
+        repository: repositories.asiaLog,
+        demo: demos.asiaLog,
         preview: {
-          ...screenshots.fraud,
-          toolbar: 'Pix Fraud Detection / Grafana dashboard',
-          caption: 'Actual screenshot: the dashboard with December’s Pix decided by the API, day by day.',
-          alt: 'Grafana dashboard of the Pix fraud service showing Pix decided per second, the share held and blocked, decision time, money held and customer responses',
+          ...screenshots.asiaLog,
+          toolbar: 'AsiaLogService / running interface',
+          caption: 'Actual screenshot: the log query served by the project API.',
+          alt: 'AsiaLogService interface with the filters and the logs processed per integration',
         },
       },
       {
@@ -769,15 +769,15 @@ const en: Content = {
           repository: others.works.repository,
         },
         {
-          id: 'asiaLog',
-          title: 'AsiaLogService',
+          id: 'fraud',
+          title: 'Pix Fraud Detection',
           summary:
-            'An API requested by Asia Shipping to centralise integration logs and flag critical events, with Grafana dashboards. .NET 8.',
+            'Pix fraud detection with machine learning: LightGBM decides each Pix by the cost of the error, in a real-time API with the very same features as training. Python, with 456 tests.',
           image: {
-            ...others.asiaLog.photo,
-            alt: 'AsiaLogService interface with the filters and the logs processed per integration',
+            ...others.fraud.photo,
+            alt: 'Grafana dashboard of the Pix fraud service showing Pix decided per second and the share held and blocked',
           },
-          repository: others.asiaLog.repository,
+          repository: others.fraud.repository,
         },
       ],
     },
